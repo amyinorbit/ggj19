@@ -1,0 +1,16 @@
+* Modifiers
+
+    - hidden room
+    - decode a room
+    - (something more interesting is happening in the background)
+    - (protect the oceans)
+
+* Verbs/Interactions
+
+    verb        synonims
+    -----------------------------------
+    go          walk, enter
+    use         touch, toggle
+    smell       sniff
+    look        
+
