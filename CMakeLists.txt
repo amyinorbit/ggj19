@@ -8,8 +8,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # find_package(glfw3 3.2 REQUIRED)
 # find_package(OpenGL REQUIRED)
 
-# include_directories(include ${OPENGL_INCLUDE_DIR})
+include_directories(include)
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fno-exceptions -fno-rtti")
 
-add_subdirectory(lib)
 add_subdirectory(src)
+add_subdirectory(test)
+
+add_custom_target(run
+    COMMAND GGJtest
+    DEPENDS GGJtest
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+)

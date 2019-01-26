@@ -7,10 +7,11 @@
 
 * Verbs/Interactions
 
-    verb        synonims
+    verb        synonyms
     -----------------------------------
     go          walk, enter
     use         touch, toggle
     smell       sniff
     look        
+    take
 

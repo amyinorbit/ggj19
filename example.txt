@@ -1,0 +1,3 @@
+> room_entry_proc//01
+> current_temperature   23.014C
+ 
