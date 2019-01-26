@@ -16,28 +16,29 @@ GGJDriver::GGJDriver(std::shared_ptr<App> app, std::shared_ptr<IOManaging> io)
 
 void GGJDriver::run() {
     if (!app_ || !io_) return;
-    io_.onStart(*this);
-    app_.onStart(*this);
+    io_->onStart(*this);
+    app_->onStart(*this);
     
     for(;;) {
-        bool again = io_.onUpdate(*this);
+        bool again = io_->onUpdate(*this);
+        if(!again) break;
     }
     
-    app_.onFinish(*this);
-    io_.onFinish(*this);
+    app_->onFinish(*this);
+    io_->onFinish(*this);
 }
 
 void GGJDriver::handleInput(const std::string& str) {
     if (!app_) return;
-    app_.handleInput(*this, str);
+    app_->handleInput(*this, str);
 }
 
 void GGJDriver::print(const std::string& str) {
     if (!io_) return;
-    io_.print(*this, str);
+    io_->print(*this, str);
 }
 
 void GGJDriver::clear() {
     if (!io_) return;
-    io_.clear(*this);
+    io_->clear(*this);
 }

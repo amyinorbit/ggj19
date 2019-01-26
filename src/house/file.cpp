@@ -25,6 +25,7 @@ GGJEntity GGJFile::compile() {
     nextToken();
     const auto [kind, name] = recHeader();
     
+    entity.key = key_;
     entity.kind = kind;
     entity.name = name;
     entity.desc = recDescription();

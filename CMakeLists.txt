@@ -10,6 +10,9 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 # find_package(glfw3 3.2 REQUIRED)
 # find_package(OpenGL REQUIRED)
 
+find_package(SDL2 REQUIRED)
+include_directories(${SDL2_INCLUDE_DIRS})
+
 include_directories(include)
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fno-exceptions -fno-rtti")
 

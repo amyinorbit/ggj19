@@ -1,6 +1,6 @@
 @room "Sitting room"
 
-"The sitting room is attractive and carefully decorated. A large family portrait hangs above a grand piano. There’s a sofa in the centre of the room. A glass door on the eastern wall is letting in a cascade of golden sunlight. Through it you can see the patio. The light stretches through the room, through to the dining room to the west. The ballroom is to the north, and the living room to the south." 
+"The sitting room is attractive and carefully decorated. A large family portrait hangs above a grand piano. There's a sofa in the centre of the room. A glass door on the eastern wall is letting in a cascade of golden sunlight. Through it you can see the patio. The light stretches through the room, through to the dining room to the west. The ballroom is to the north, and the living room to the south." 
 
 @links
 *"portrait", look, sitting-room/portrait.txt

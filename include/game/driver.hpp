@@ -11,6 +11,8 @@
 #include <string>
 #include <memory>
 
+class GGJDriver;
+
 class IOManaging {
 public:
     virtual ~IOManaging() {}

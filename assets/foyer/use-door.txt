@@ -1,6 +1,6 @@
 @object "Open the door"
 
-"You get a strong urge that tells you to stay in the house. You don’t want to leave. You belong here."
+"You get a strong urge that tells you to stay in the house. You don't want to leave. You belong here."
 
 @links
 *"back", go, foyer.txt

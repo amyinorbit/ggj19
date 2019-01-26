@@ -1,6 +1,6 @@
 @room "Living room"
 
-"The living room is spacious but cosy. There’s a fireplace on the southern wall, its glowing embers fill you with a feeling of melancholia. There’s a sofa facing the fireplace, with a coffee table separating them. The foyer is through the door on the western wall, the sitting room is to the north and to the east is the library." 
+"The living room is spacious but cosy. There's a fireplace on the southern wall, its glowing embers fill you with a feeling of melancholia. There's a sofa facing the fireplace, with a coffee table separating them. The foyer is through the door on the western wall, the sitting room is to the north and to the east is the library." 
 
 @links
 *"fireplace", look, living-room/fireplace.txt
