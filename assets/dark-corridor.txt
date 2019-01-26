@@ -1,0 +1,9 @@
+@room "Dark corridor"
+
+"Description"
+
+@links
+*"foyer", go, foyer.txt
+*"childrens bedroom", go, childrens-bedroom.txt
+*"bathroom", go, bathroom.txt
+*"master bedroom", go, master-bedroom.txt

@@ -2,13 +2,17 @@
 #include <fstream>
 #include <string>
 #include <language/parser.hpp>
-#include <game/file.hpp>
+#include <house/file.hpp>
+#include <house/loader.hpp>
 
 int main(int argc, const char** args) {
     
-    std::ifstream in("/Users/amy/Desktop/intro.txt");
-    assert(in.is_open());
-    auto file = GGJFile("intro.txt", in);
+    GGJLoader loader("intro.txt");
+    auto rooms = loader.compileGraph();
+    
+    // std::ifstream in("/Users/amy/Desktop/foyer.txt");
+    // assert(in.is_open());
+    // auto file = GGJFile("foyer.txt", in);
     
     // while (1) {
     //     const auto& tok = file.nextToken();
@@ -17,15 +21,21 @@ int main(int argc, const char** args) {
     //     std::cout << "[ " << tok.kind << " ] " << tok.text << "\n";
     // }
     
-    auto room = file.compile();
-
-    std::cout << room.name << "\n\n";
-    std::cout << room.desc << "\n\n";
-
-    std::cout << "Links\n";
-    for(const auto& link: room.links) {
-        std::cout << " - " << link.verb << "(" << link.object << ") -> " << link.key << "\n";
-    }
+    // auto room = file.compile();
+    //
+    // std::cout << room.name << "\n\n";
+    // std::cout << room.desc << "\n\n";
+    //
+    // std::cout << "Links\n";
+    // for(const auto& link: room.links) {
+    //     std::cout << " - " << link.verb << "(" << link.object << ") -> " << link.key << "\n";
+    // }
+    
+    
+    
+    
+    
+    
     
     // NLParser parser;
     //

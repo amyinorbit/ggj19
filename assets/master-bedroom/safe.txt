@@ -1,0 +1,7 @@
+@object "Open the safe"
+
+"Description"
+
+@links
+*"user manual", take, master-bedroom/user-manual.txt
+*"back", go, master-bedroom.txt

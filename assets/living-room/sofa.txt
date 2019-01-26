@@ -1,0 +1,6 @@
+@object "Look at the sofa"
+
+"It’s a large, comfortable looking sofa. It looks well used." 
+
+@links
+*"back", go, living-room.txt

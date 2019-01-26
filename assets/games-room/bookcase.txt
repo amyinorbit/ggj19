@@ -1,0 +1,7 @@
+@object "Look at the bookcase"
+
+"Description"
+
+@links
+*"trophy", use, games-room/trophy.txt
+*"back", go, games-room.txt

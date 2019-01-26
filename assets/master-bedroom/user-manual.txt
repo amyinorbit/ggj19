@@ -1,0 +1,6 @@
+@object "Take the user manual"
+
+"Description"
+
+@links
+*"back", go, master-bedroom.txt

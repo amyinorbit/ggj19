@@ -1,0 +1,8 @@
+@room "Games room"
+
+"Description"
+
+@links
+*"billiards table", look, games-room/billiards-table.txt
+*"bookcase", look, games-room/bookcase.txt
+*"basement landing", go, basement-landing.txt

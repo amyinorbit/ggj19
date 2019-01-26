@@ -1,0 +1,8 @@
+@room "Children's bedroom"
+
+"Description"
+
+@links
+*"beds", look, childrens-bedroom/beds.txt
+*"dolls house", look, childrens-bedroom/dolls-house.txt
+*"dark corridor", go, dark-corridor.txt

@@ -1,0 +1,7 @@
+@room "Silent corridor" 
+
+"Description"
+
+@links
+*"kitchen", go, kitchen.txt
+*"ballroom", go, ballroom.txt

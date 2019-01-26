@@ -1,0 +1,9 @@
+@room "Patio"
+
+"Description"
+
+@links
+*"plants", look, patio/plants.txt
+*"table", look, patio/table.txt
+*"chairs", look, patio/chairs.txt
+*"sitting room", go, sitting-room.txt

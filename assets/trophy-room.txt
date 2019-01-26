@@ -1,0 +1,8 @@
+@room "Trophy room"
+
+"Description"
+
+@links
+*"trophies", look, trophy-room/trophies.txt
+*"ballroom", go, ballroom.txt
+*"lonely corridor", go, lonely-corridor.txt

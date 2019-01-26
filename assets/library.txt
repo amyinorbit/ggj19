@@ -1,0 +1,11 @@
+@room "Library"
+
+"Description"
+
+@links
+*"bookcases", look, library/bookcases.txt
+*"side table", look, library/side-table.txt
+*"books", look, library/books.txt
+*"armchairs", look, library/armchairs.txt
+*"study", go, study.txt
+*"living room", go, living-room.txt

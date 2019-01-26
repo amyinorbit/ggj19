@@ -1,0 +1,7 @@
+@room "Lonely Corridor"
+
+"Description"
+
+@links
+*"trophy room", go, trophy-room.txt
+*"study", go, study.txt
