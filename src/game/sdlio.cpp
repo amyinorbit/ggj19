@@ -18,7 +18,8 @@ SDLIO::SDLIO(int char_w, int char_h, int mul) {
     charWidth = char_w;
     charHeight = char_h;
     
-    inputHead_ = 0;
+    //inBuffer_ = "";
+    //outBuffer_ = "";
     lagHead_ = 0;
     
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
@@ -107,28 +108,23 @@ bool SDLIO::doEvents(GGJDriver& driver) {
         if (e.type == SDL_KEYDOWN) {
             switch (e.key.keysym.sym) {
             case SDLK_BACKSPACE:
-                if (inputHead_) {
-                    inBuffer_[--inputHead_] = '\0';
+                if (inBuffer_.size()) {
+                    inBuffer_.pop_back();
                 }
                 break;
                 
             case SDLK_RETURN:
             {
-                std::string input = inBuffer_;
-                if (input.size() > 0) {
-                    driver.handleInput(input);
+                if (inBuffer_.size() > 0) {
+                    driver.handleInput(inBuffer_);
                 }
-                clearInput();
+                inBuffer_.clear();
             }
                 break;
             }
         }
         else if (e.type == SDL_TEXTINPUT) {
-            std::string in(e.text.text);
-            for (char c: in) {
-                if (inputHead_ >= SDLIO_COLS-2) break;
-                inBuffer_[inputHead_++] = c;
-            }
+            inBuffer_ += e.text.text;
         }
     }
     return true;
@@ -139,16 +135,7 @@ void SDLIO::onFinish(GGJDriver& driver) {
 }
 
 void SDLIO::print(GGJDriver& driver, const std::string& str) {
-    for(char c: str) {
-        outBuffer_[printHead_++] = c;
-    }
-}
-
-void SDLIO::clearInput() {
-    for (int i = 0; i < SDLIO_COLS*2; ++i) {
-        inBuffer_[i] = '\0';
-    }
-    inputHead_ = 0;
+    outBuffer_ += str;
 }
 
 void SDLIO::clearScreenBuffer() {
@@ -159,16 +146,21 @@ void SDLIO::clearScreenBuffer() {
 
 void SDLIO::blitOutput() {
     int address = 0;
-    for (int i = 0; i < SDLIO_COLS * (SDLIO_ROWS-2) && i < (lagHead_/2); ++i) {
-        char c = outBuffer_[i];
+    int count = 0;
+    
+    for (char c: outBuffer_) {
+        int line = address / SDLIO_COLS;
+        if (line > (SDLIO_ROWS - 3)) break;
         if (c == '\n') {
-            int line = address / SDLIO_COLS;
             address = (line+1) * SDLIO_COLS;
             continue;
         }
-        if(c == ' ' && (address % SDLIO_COLS) == 0) continue;
+        if (c == ' ' && (address % SDLIO_COLS) == 0) continue;
         screen_[address] = c;
         address += 1;
+        count += 1;
+        
+        if (count >= lagHead_/2) break;
     }
 }
 
@@ -176,13 +168,13 @@ void SDLIO::blitInput() {
     int offset = (SDLIO_ROWS-1) * SDLIO_COLS;
     
     screen_[offset] = '>';
-    for (int i = 0; i < (SDLIO_COLS-2) && i < inputHead_; ++i) {
+    for (int i = 0; i < (SDLIO_COLS-2) && i < inBuffer_.size(); ++i) {
         screen_[offset+2+i] = inBuffer_[i];
     }
 }
 
 void SDLIO::updateLag() {
-    if(lagHead_/2 == printHead_) return;
+    if(lagHead_/2 == outBuffer_.size()) return;
     lagHead_ += 1;
 }
 
@@ -218,9 +210,6 @@ void SDLIO::drawChar(char c, int cx, int cy) {
 
 void SDLIO::clear(GGJDriver& driver) {
     // TODO: A memset here would go faster, probs
-    printHead_ = 0;
     lagHead_ = 0;
-    for(std::uint64_t i = 0; i < SDLIO_COLS*SDLIO_ROWS*2; ++i) {
-        outBuffer_[i] = '\0';
-    }
+    outBuffer_.clear();
 }

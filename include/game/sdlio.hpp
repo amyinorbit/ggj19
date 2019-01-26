@@ -34,22 +34,17 @@ private:
     void blitOutput();
     void blitInput();
     
-    void clearInput();
     void clearScreenBuffer();
     void updateLag();
     
     bool doEvents(GGJDriver& driver);
-    
-    char outBuffer_[SDLIO_COLS*SDLIO_ROWS * 2];
-    
+    std::string inBuffer_ = "";
+    std::string outBuffer_ = "";
     char screen_[SDLIO_COLS*SDLIO_ROWS];
-    char inBuffer_[SDLIO_COLS*2];
     
     int lagHead_;
-    int printHead_;
-    int inputHead_;
-    int charWidth, charHeight;
     
+    int charWidth, charHeight;
     SDL_Window* window_;
     SDL_Renderer* renderer_;
     SDL_Texture* target_;
