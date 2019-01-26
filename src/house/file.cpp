@@ -11,7 +11,7 @@
 #include <cctype>
 #include <iostream>
 #include <cassert>
-#include <game/file.hpp>
+#include <house/file.hpp>
 
 GGJFile::GGJFile(const std::string& key, std::istream& stream) {
     key_ = key;

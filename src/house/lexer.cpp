@@ -11,7 +11,7 @@
 #include <cctype>
 #include <iostream>
 #include <cassert>
-#include <game/file.hpp>
+#include <house/file.hpp>
 
 std::size_t GGJFile::remaining() const {
     return file_.length() - ptr_;
@@ -92,7 +92,7 @@ const GGJToken& GGJFile::lexString() {
 const GGJToken& GGJFile::makeToken(GGJToken::Kind kind, const std::string& str) {
     currentToken_.kind = kind;
     currentToken_.text = str;
-    std::cout << "[ " << currentToken_.kind << " ] " << currentToken_.text << "\n";
+    //std::cout << "[ " << currentToken_.kind << " ] " << currentToken_.text << "\n";
     return currentToken_;
 }
 

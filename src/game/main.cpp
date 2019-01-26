@@ -6,9 +6,9 @@
 
 int main(int argc, const char** args) {
     
-    std::ifstream in("/Users/amy/Desktop/foyer.txt");
+    std::ifstream in("/Users/amy/Desktop/intro.txt");
     assert(in.is_open());
-    auto file = GGJFile("foyer.txt", in);
+    auto file = GGJFile("intro.txt", in);
     
     // while (1) {
     //     const auto& tok = file.nextToken();
