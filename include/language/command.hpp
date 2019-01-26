@@ -11,7 +11,10 @@
 #include <string>
 
 struct NLCommand {
-    std::string  verb;
-    std::string  object;
-    std::string  complement;
+    NLCommand() : verb(""), object(""), complement("") {}
+    NLCommand(const std::string& v, const std::string& o, const std::string& c)
+        : verb(v), object(o), complement(c) {}
+    std::string  verb = "";
+    std::string  object = "";
+    std::string  complement = "";
 };

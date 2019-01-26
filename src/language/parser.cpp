@@ -7,25 +7,26 @@
 // Licensed under the MIT License
 // =^•.•^=
 //===--------------------------------------------------------------------------------------------===
+#include <cassert>
+#include <language/lexer.hpp>
 #include <language/parser.hpp>
 
 NLVerb::NLVerb(const std::string& ident)
 : keyword(ident)
 , synonyms(0) {}
 
-bool NLVerbs::matches(const std::string& ident) const {
+bool NLVerb::matches(const std::string& ident) const {
     const auto str = ident;
     if (str == keyword) return true;
     
     for (const auto& syn: synonyms) {
-        if (syn == str) return true
+        if (syn == str) return true;
     }
-    
     return false;
 }
 
 
-NLParser::NLParser() : articles(0), verbs(0) {
+NLParser::NLParser() {
     
 }
 
@@ -41,6 +42,53 @@ void NLParser::addVerb(const NLVerb& verb) {
     verbs.push_back(verb);
 }
 
-void NLParser::parse(const std::string&) {
+// RECURSIVE DESCENT YAY
+
+bool NLParser::isVerb(const NLLexer& lexer) {
+    auto [tok, eof] = lexer.currentToken();
+    if (eof) return false;
     
+    const auto it = std::find_if(verbs.begin(), verbs.end(), [tok=tok](const NLVerb& verb) {
+        return verb.matches(tok);
+    });
+    return it != verbs.end();
+}
+
+bool NLParser::isArticle(const NLLexer& lexer) {
+    const auto& [tok, eof] = lexer.currentToken();
+    if (eof) return false;
+    return std::find(articles.begin(), articles.end(), tok) != articles.end();
+}
+
+std::string NLParser::canonicalVerb(const NLLexer& lexer) {
+    const auto& [tok, eof] = lexer.currentToken();
+    assert(!eof && "invalid token!");
+    const auto it = std::find_if(verbs.begin(), verbs.end(), [tok=tok](const NLVerb& verb) {
+        return verb.matches(tok);
+    });
+    assert(it != verbs.end() && "invalid verb!");
+    return it->keyword;
+}
+
+NLParser::Result NLParser::parse(const std::string& phrase) {
+    auto lexer = NLLexer(phrase);
+    
+    auto command = NLCommand();
+    command.object = "";
+    command.complement = "";
+    
+    if (!isVerb(lexer)) return std::make_pair(false, NLCommand());
+    command.verb = canonicalVerb(lexer);
+    lexer.nextToken();
+    
+    while (isArticle(lexer)) {
+        lexer.nextToken();
+    }
+    
+    while (!lexer.currentToken().second) {
+        if (command.object.size() > 0) command.object += " ";
+        command.object += lexer.currentToken().first;
+        lexer.nextToken();
+    }
+    return std::make_pair(true, command);
 }

@@ -11,7 +11,6 @@
 #include <string>
 #include <vector>
 #include <utility>
-
 #include <language/command.hpp>
 
 struct NLVerb {
@@ -22,6 +21,7 @@ struct NLVerb {
     std::vector<std::string>    synonyms;
 };
 
+class NLLexer;
 class NLParser final {
 public:
     
@@ -37,7 +37,9 @@ public:
     
 private:
     
-    bool isVerb()
+    bool isVerb(const NLLexer& lexer);
+    bool isArticle(const NLLexer& lexer);
+    std::string canonicalVerb(const NLLexer& lexer);
     
     std::vector<std::string>    articles;
     std::vector<NLVerb>    verbs;
