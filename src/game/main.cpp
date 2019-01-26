@@ -1,59 +1,89 @@
+#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <utility>
 #include <language/parser.hpp>
 #include <house/file.hpp>
 #include <house/loader.hpp>
 
+std::pair<bool, std::string> checkCommand(const NLCommand& cmd, const GGJEntity& entity) {
+    
+    const auto it = std::find_if(entity.links.begin(), entity.links.end(), [&](const GGJLink& link) {
+        return link.verb == cmd.verb && link.object == cmd.object;
+    });
+    
+    if (it != entity.links.end()) {
+        return std::make_pair(true, it->key);
+    }
+    
+    return std::make_pair(false, "");
+}
+
 int main(int argc, const char** args) {
     
-    GGJLoader loader("intro.txt");
+    
+    NLParser parser;
+
+    auto goVerb = NLVerb("go");
+    goVerb.synonyms.push_back("enter");
+
+    auto useVerb = NLVerb("use");
+    useVerb.synonyms.push_back("toggle");
+    useVerb.synonyms.push_back("touch");
+
+    parser.addVerb(goVerb);
+    parser.addVerb(useVerb);
+    parser.addVerb(NLVerb("get"));
+    parser.addVerb(NLVerb("look"));
+    parser.addVerb(NLVerb("take"));
+    
+
+    parser.addArticle("the");
+    parser.addArticle("a");
+    parser.addArticle("an");
+    parser.addArticle("to");
+    parser.addArticle("at");
+
+    
+    GGJLoader loader("intro.txt", "assets/");
     auto rooms = loader.compileGraph();
     
-    // std::ifstream in("/Users/amy/Desktop/foyer.txt");
-    // assert(in.is_open());
-    // auto file = GGJFile("foyer.txt", in);
+    GGJEntity* current = &rooms.at("intro.txt");
     
-    // while (1) {
-    //     const auto& tok = file.nextToken();
-    //     if (tok.kind == GGJToken::End) break;
-    //
-    //     std::cout << "[ " << tok.kind << " ] " << tok.text << "\n";
-    // }
-    
-    // auto room = file.compile();
-    //
-    // std::cout << room.name << "\n\n";
-    // std::cout << room.desc << "\n\n";
-    //
-    // std::cout << "Links\n";
-    // for(const auto& link: room.links) {
-    //     std::cout << " - " << link.verb << "(" << link.object << ") -> " << link.key << "\n";
-    // }
-    
-    
-    
-    
-    
-    
-    
-    // NLParser parser;
-    //
-    // auto goVerb = NLVerb("go");
-    // goVerb.synonyms.push_back("enter");
-    //
-    // auto useVerb = NLVerb("use");
-    // useVerb.synonyms.push_back("toggle");
-    // useVerb.synonyms.push_back("touch");
-    //
-    // parser.addVerb(goVerb);
-    // parser.addVerb(useVerb);
-    //
-    // parser.addArticle("the");
-    // parser.addArticle("a");
-    // parser.addArticle("an");
-    // parser.addArticle("to");
-    //
+    for(;;) {
+        std::cout << current->name << "\n";
+        for(int i = 0; i < current->name.size(); ++i)
+            std::cout << "=";
+        std::cout << "\n\n";
+        std::cout << current->desc << "\n\n";
+        
+
+        for(;;) {
+            std::cout << "> ";
+
+            std::string phrase;
+            std::getline(std::cin, phrase);
+        
+            auto [parseSuccess, command] = parser.parse(phrase);
+            if(!parseSuccess) {
+                std::cout << "nope\n";
+                continue;
+            }
+            
+            auto [linkSuccess, key] = checkCommand(command, *current);
+            if(!linkSuccess) {
+                std::cout << "nuh-uh\n";
+                continue;
+            }
+            
+            
+            current = &rooms.at(key);
+            std::cout << "\n\n";
+            break;
+        }
+    }
+
     // while(1) {
     //
     //     std::cout << "> ";

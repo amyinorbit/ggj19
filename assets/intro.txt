@@ -3,4 +3,4 @@
 "You wake up in a strange room. It’s 12AM on the 1st of January 1970. The room is dark and quiet. You’re laying on the carpeted floor. Get up?"
 
 @links
-*"get", up, foyer.txt
+*"up", get, foyer.txt

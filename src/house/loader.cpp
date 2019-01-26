@@ -12,9 +12,8 @@
 #include <house/loader.hpp>
 #include <house/file.hpp>
 
-GGJLoader::GGJLoader(const std::string& root) : rootKey_(root) {
-    
-}
+GGJLoader::GGJLoader(const std::string& root, const std::string& prefix)
+    : rootKey_(root), prefix_(prefix) { }
 
 const std::map<std::string, GGJEntity>& GGJLoader::compileGraph() {
     if (entities_.empty()) {
@@ -26,9 +25,10 @@ const std::map<std::string, GGJEntity>& GGJLoader::compileGraph() {
 void GGJLoader::compile(const std::string& key) {
     if (files_.find(key) != files_.end()) return;
     
-    std::ifstream in(key);
+    const auto path = prefix_ + key;
+    std::ifstream in(path);
     if(!in.is_open()) {
-        std::cerr << "file '" << key << "' not found\n";
+        std::cerr << "file '" << path << "' not found\n";
         abort();
     }
     

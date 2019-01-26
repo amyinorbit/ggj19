@@ -16,14 +16,15 @@
 class GGJLoader {
 public:
     
-    GGJLoader(const std::string& root);
+    GGJLoader(const std::string& root, const std::string& prefix = "");
     
     const std::map<std::string, GGJEntity>& compileGraph();
     
 private:
     void compile(const std::string& key);
     
-    const std::string&                  rootKey_;
+    const std::string                   rootKey_;
+    const std::string                   prefix_;
     
     std::map<std::string, GGJEntity>    entities_;
     std::map<std::string, GGJFile>      files_;
