@@ -22,13 +22,7 @@ include_directories(include ${SDL2_INCLUDE_DIRS})
 add_subdirectory(src)
 
 add_custom_target(run
-    COMMAND ggj19
-    DEPENDS ggj19
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-)
-
-add_custom_target(debug
-    COMMAND lldb ggj19
-    DEPENDS ggj19
+    COMMAND alive
+    DEPENDS alive
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 )
