@@ -1,6 +1,10 @@
 @object "Look at the newspaper"
 
-"Description"
+
+"You look at the newspaper. It's open on a page containing an article reporting on mass disappearances of certain species on animals."
+
+
 
 @links
+
 *"back", go, study.txt

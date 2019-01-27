@@ -1,6 +1,8 @@
 @object "Look at the shelves"
 
-"Description"
+
+"The shelves contain myriad objects, such as cans of food and boxes of holiday decorations." 
+
 
 @links
 *"back", go, store-room.txt

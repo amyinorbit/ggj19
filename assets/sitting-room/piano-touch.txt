@@ -1,6 +1,6 @@
 @object "Use the piano"
 
-"Description"
+"You press one of the keys on the piano. The sound reverberates through its body and fills the house with its echo."
 
 @links
 *"back", go, sitting-room.txt

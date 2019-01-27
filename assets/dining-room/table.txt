@@ -1,6 +1,6 @@
 @object "Look at the table"
 
-"Description"
+"The table is large and rectangular."
 
 @links
 *"back", go, dining-room.txt

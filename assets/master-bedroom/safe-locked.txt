@@ -1,6 +1,6 @@
 @object "Can't open the safe"
 
-"Description"
+"You can't open the safe. You need a key."
 
 @links
 *"back", go, master-bedroom.txt

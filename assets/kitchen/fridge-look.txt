@@ -1,6 +1,6 @@
 @object "Look at the fridge"
 
-"Description"
+"It's a regular fridge. It appears to be on."
 
 @links
 *"fridge", use, kitchen/fridge-use.txt

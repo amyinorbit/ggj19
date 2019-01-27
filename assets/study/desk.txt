@@ -1,7 +1,13 @@
 @object "Look at the desk"
 
-"Description"
+
+
+"The desk is empty apart from an open newspaper." 
+
+
 
 @links
+
 *"newspaper", look, study/newspaper.txt
+
 *"back", go, study.txt

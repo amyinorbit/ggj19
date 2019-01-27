@@ -1,6 +1,8 @@
 @object "Open the safe"
 
-"Description"
+
+"You open the safe. There's some kind of manual inside."
+
 
 @links
 *"user manual", take, master-bedroom/user-manual.txt

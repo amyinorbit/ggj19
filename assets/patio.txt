@@ -1,6 +1,6 @@
 @room "Patio"
 
-"Description"
+"As you walk out the glass door you're momentarily blinded by the bright sunlight. You squint to protect your eyes. When they adjust you see the patio, with its metal table and chairs and numerous potted plants."
 
 @links
 *"plants", look, patio/plants.txt

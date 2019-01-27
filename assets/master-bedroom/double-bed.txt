@@ -1,6 +1,6 @@
 @object "Look at the double bed"
 
-"Description"
+"It's a large, neat bed." 
 
 @links
 *"back", go, master-bedroom.txt

@@ -1,6 +1,8 @@
 @object "Look at the bookcase"
 
-"Description"
+
+"The bookcase contains a lone trophy." 
+
 
 @links
 *"trophy", use, games-room/trophy.txt

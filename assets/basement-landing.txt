@@ -1,6 +1,7 @@
 @room "Basement landing"
 
-"Description"
+
+"You arrive at the basement landing. It's very dark. The stairs lead back up to the kitchen. The store room is to the south, and the games room is to the east." 
 
 @links
 *"kitchen", go, kitchen.txt

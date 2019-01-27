@@ -1,9 +1,17 @@
 @room "Study"
 
-"Description"
+
+
+"You enter the study. There's a desk in the centre of the room. Mozart's Piano Sonata 16 in C Major can be heard from a record player in the corner. The library is through an archway to the west, and the lonely corridor is to the north."
+
+
 
 @links
+
 *"desk", look, study/desk.txt
+
 *"record player", look, study/record-player.txt
+
 *"lonely corridor", go, lonely-corridor.txt
+
 *"library", go, library.txt

@@ -1,6 +1,6 @@
 @object "Look at the piano"
 
-"Description"
+"It's a grand piano."
 
 @links
 *"piano", use, sitting-room/piano-touch.txt

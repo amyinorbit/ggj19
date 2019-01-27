@@ -1,7 +1,11 @@
 @object "Look at the billiards trophy"
 
-"Description"
+
+"You take a closer look at the billiards trophy. There appears to be a small key hidden inside it." 
+
 
 @links
+
 *"key", take, trophy-room/key.txt
+
 *"back", go, trophy-room.txt

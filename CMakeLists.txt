@@ -29,3 +29,9 @@ add_custom_target(run
     DEPENDS ggj19
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 )
+
+add_custom_target(debug
+    COMMAND lldb ggj19
+    DEPENDS ggj19
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+)

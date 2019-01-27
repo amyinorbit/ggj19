@@ -1,6 +1,9 @@
 @object "Look at the bookcases"
 
-"Description"
+
+"The shelves are full of books covering a variety of subjects, from physics to theology."
+
 
 @links
+
 *"back", go, library.txt

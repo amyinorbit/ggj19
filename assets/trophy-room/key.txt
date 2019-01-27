@@ -1,6 +1,9 @@
 @object "Take the key"
 
-"Description"
+
+"You take the key. It might come in handy."
+
 
 @links
+
 *"back", go, trophy-room.txt

@@ -31,6 +31,10 @@ GGJ19::GGJ19() {
     
     parser_.addVerb(NLVerb("stand"));
     parser_.addVerb(NLVerb("look"));
+    parser_.addVerb(NLVerb("open"));
+    
+    parser_.addVerb(NLVerb("help"));
+    parser_.addVerb(NLVerb("inventory"));
 
     parser_.addArticle("the");
     parser_.addArticle("a");
@@ -80,29 +84,17 @@ void GGJ19::onFinish(GGJDriver& driver) {
     
 }
 
-GGJEntity* GGJ19::checkCommand(const NLCommand& cmd) {
-    const auto& links = current_->links;
-    const auto it = std::find_if(links.begin(), links.end(), [&](const GGJLink& link) {
-        return link.verb == cmd.verb && link.object == cmd.object;
-    });
-    return (it != links.end()) ? it->entity : nullptr;
-}
-
 void GGJ19::handleInput(GGJDriver& driver, const std::string& str) {
     auto result = parser_.parse(str);
     if(!result.first) {
-        driver.print("> '" + str + "': nope\n");
+        driver.print("> what?\n");
         return;
     }
     
     auto command = result.second;
-    auto next = checkCommand(command);
-    if(!next) {
-        driver.print("> '" + str + "': nuh-uh\n");
-        return;
-    }
-    
-    showEntity(driver, next);
+    auto next = handleVerb(driver, command);
+    if(next)
+        showEntity(driver, next);
 }
 
 void GGJ19::showEntity(GGJDriver& driver, GGJEntity* entity) {
@@ -112,6 +104,53 @@ void GGJ19::showEntity(GGJDriver& driver, GGJEntity* entity) {
     current_ = entity;
 }
 
-bool GGJ19::handleSpecialVerb(GGJDriver& driver, NLCommand& cmd) {
-    return false;
+GGJEntity* GGJ19::handleVerb(GGJDriver& driver, NLCommand& cmd) {
+    if (cmd.verb == "take")
+        return handleTake(driver, cmd);
+    if (cmd.verb == "inventory")
+        return handleInventory(driver);
+    if (cmd.verb == "help")
+        return handleHelp(driver);
+    return handleLink(driver, cmd);
+}
+
+GGJEntity* GGJ19::handleTake(GGJDriver& driver, NLCommand& cmd) {
+    auto& links = current_->links;
+    const auto it = std::find_if(links.begin(), links.end(), [&](const GGJLink& link) {
+        return link.verb == cmd.verb && link.object == cmd.object;
+    });
+    if (it == links.end()) {
+        driver.print("> nopity nope\n");
+        return nullptr;
+    }
+    const auto link = *it;
+    
+    inventory_.insert(link.object);
+    links.erase(it);
+    return link.entity;
+}
+
+GGJEntity* GGJ19::handleInventory(GGJDriver& driver) {
+    driver.print("\nyou have:\n");
+    for (const auto& obj: inventory_) {
+        driver.print(" - " + obj);
+    }
+    return nullptr;
+}
+
+GGJEntity* GGJ19::handleHelp(GGJDriver& driver) {
+    driver.print("\ncommands:\n - go [to] (enter, walk)\n - use (toggle, touch)\n - take (get, grab)\n - stand\n - look\n - open\n - /inventory");
+    return nullptr;
+}
+
+
+GGJEntity* GGJ19::handleLink(GGJDriver& driver, NLCommand& cmd) {
+    const auto& links = current_->links;
+    const auto it = std::find_if(links.begin(), links.end(), [&](const GGJLink& link) {
+        return link.verb == cmd.verb && link.object == cmd.object;
+    });
+    if (it != links.end()) return it->entity;
+    
+    driver.print("> nah, you can't do that\n");
+    return nullptr;
 }

@@ -31,17 +31,17 @@ private:
     GGJEntity* findEntity(const std::string& key);
     void resolveLinks(GGJEntity& entity);
     
-    GGJEntity* checkCommand(const NLCommand& cmd);
     void showEntity(GGJDriver& driver, GGJEntity* entity);
     
     // Handles non-story related verbs, or things that can change inventory and all
     // Returns true if the verb has been fully handled and there is no need for the game to
     // take further action
-    bool handleSpecialVerb(GGJDriver& driver, NLCommand& cmd);
+    GGJEntity* handleVerb(GGJDriver& driver, NLCommand& cmd);
     
-    bool handleInventory(GGJDriver& driver);
-    bool handleHelp(GGJDriver& driver);
-    bool handleReset(GGJDriver& driver);
+    GGJEntity* handleTake(GGJDriver& driver, NLCommand& cmd);
+    GGJEntity* handleInventory(GGJDriver& driver);
+    GGJEntity* handleHelp(GGJDriver& driver);
+    GGJEntity* handleLink(GGJDriver& driver, NLCommand& cmd);
     
     GGJEntity*              current_ = nullptr;
     NLParser                parser_ = NLParser();

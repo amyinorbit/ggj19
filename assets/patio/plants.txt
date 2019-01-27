@@ -1,6 +1,6 @@
 @object "Look at the plants"
 
-"Description"
+"As you take a closer look at the foliage, you see that there's a great variety of rare and exotic plants. They're very well kept."
 
 @links
 *"back", go, patio.txt

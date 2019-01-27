@@ -1,6 +1,6 @@
 @object "Look out of the window"
 
-"Description"
+"The window is open. A light breeze is entering the kitchen, filling it with fresh air. Outside is a vast garden, scattered with trees and shrubs. There's an abandoned birds nest in the hedge beneath the window. The light blue eggs lay cold and dead in their carefully crafted cradle."
 
 @links
 *"back", go, kitchen.txt

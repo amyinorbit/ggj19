@@ -1,6 +1,6 @@
 @room "Games room"
 
-"Description"
+"You enter the games room. There's a billiards table in the middle of it, and a bookcase against the eastern wall. The basement landing is to the west." 
 
 @links
 *"billiards table", look, games-room/billiards-table.txt

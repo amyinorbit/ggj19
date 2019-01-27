@@ -1,6 +1,8 @@
 @object "Look at the crates"
 
-"Description"
+
+"One of the crates is much larger than the others, enough to fit a human adult. A logo on the side reads Better Life Technologies." 
 
 @links
 *"back", go, store-room.txt
+

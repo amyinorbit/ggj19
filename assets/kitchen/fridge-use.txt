@@ -1,6 +1,6 @@
 @object "Open the fridge"
 
-"Description"
+"You open the fridge to find it filled with food."
 
 @links
 *"back", go, kitchen.txt

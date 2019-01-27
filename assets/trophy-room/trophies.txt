@@ -1,7 +1,13 @@
 @object "Look at the trophies"
 
-"Description"
+
+
+"On closer inspection you see that the trophies have been awarded for a variety of sports, including billiards, golf and horse riding." 
+
+
 
 @links
+
 *"billiards trophy", look, trophy-room/billiards-trophy.txt
+
 *"back", go, trophy-room.txt

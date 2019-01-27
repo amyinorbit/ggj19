@@ -1,6 +1,6 @@
 @object "Open the bedside table"
 
-"Description"
+"There's a safe in the bedside table. It seems to require a key to open." 
 
 @links
 *"safe", use, master-bedroom/safe.txt

@@ -1,6 +1,6 @@
 @room "Dining room"
 
-"Description"
+"The dining room is large, with a vast table surrounded by chairs. The foyer is to the south, and through a door on the northern wall is the kitchen. Sunlight is streaming in from the sitting room to the east."
 
 @links
 *"table", look, dining-room/table.txt

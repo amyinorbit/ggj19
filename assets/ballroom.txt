@@ -1,6 +1,6 @@
 @room "Ballroom"
 
-"Description"
+"The ballroom is large. Chairs are neatly placed along the walls. The sitting room is to the south, and the trophy room to the east. To the west is the silent corridor."
 
 @links
 *"chairs", look, ballroom/chairs.txt

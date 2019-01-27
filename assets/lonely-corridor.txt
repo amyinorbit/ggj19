@@ -1,7 +1,13 @@
 @room "Lonely Corridor"
 
-"Description"
+
+
+"The corridor is abandoned. The trophy room is to the north, and the study is to the south."
+
+
 
 @links
+
 *"trophy room", go, trophy-room.txt
+
 *"study", go, study.txt

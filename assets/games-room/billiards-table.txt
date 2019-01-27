@@ -1,6 +1,8 @@
 @object "Look at the billiards table "
 
-"Description"
+
+"It's a billiards table. It looks well used." 
+
 
 @links
 *"back", go, games-room.txt

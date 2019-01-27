@@ -1,6 +1,8 @@
 @room "Store room"
 
-"Description"
+
+"You enter the dark store room. The walls are covered in shelves, and there's a large stack of crates. The basement landing is to the north." 
+
 
 @links
 *"shelves", look, store-room/shelves.txt

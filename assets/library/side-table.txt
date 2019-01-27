@@ -1,6 +1,6 @@
 @object "Look at the side table"
 
-"Description"
+"There's a small stack of books on the side table." 
 
 @links
 *"books", look, library/books.txt

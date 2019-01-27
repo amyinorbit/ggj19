@@ -1,6 +1,6 @@
 @room "Silent corridor" 
 
-"Description"
+"The empty, silent corridor connects the kitchen and the ballroom." 
 
 @links
 *"kitchen", go, kitchen.txt

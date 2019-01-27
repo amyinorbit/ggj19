@@ -1,6 +1,11 @@
 @object "Look at the record player"
 
-"Description"
+
+
+"It looks old."
+
+
 
 @links
+
 *"back", go, study.txt

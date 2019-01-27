@@ -1,6 +1,8 @@
 @object "Take the user manual"
 
-"Description"
+
+"You take the user manual. It has the name Better Life Technologies on the front." 
+
 
 @links
 *"back", go, master-bedroom.txt

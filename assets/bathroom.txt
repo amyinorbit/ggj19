@@ -1,6 +1,6 @@
 @room "Bathroom"
 
-"Description"
+"You enter the bathroom. The floor is covered in cold water. There's a bathtub opposite the door, and a sink with a mirror above it."
 
 @links
 *"bathtub", look, bathroom/bathtub.txt

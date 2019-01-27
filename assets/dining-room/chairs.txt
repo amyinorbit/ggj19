@@ -1,6 +1,6 @@
 @object "Look at the chairs"
 
-"Description"
+"There's 16 chairs positioned neatly around the table."
 
 @links
 *"back", go, dining-room.txt

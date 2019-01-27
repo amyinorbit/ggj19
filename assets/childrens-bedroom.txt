@@ -1,6 +1,6 @@
 @room "Children's bedroom"
 
-"Description"
+"You enter the large and bright children's bedroom. The walls are painted a pastel yellow. There's two beds and a big doll's house." 
 
 @links
 *"beds", look, childrens-bedroom/beds.txt

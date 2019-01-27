@@ -1,6 +1,9 @@
 @object "Look at the armchairs"
 
-"Description"
+
+"The armchairs look very comfortable." 
+
+
 
 @links
 *"back", go, library.txt

@@ -1,8 +1,14 @@
 @room "Trophy room"
 
-"Description"
+
+
+"The room is covered in shelves full of trophies. A door to the south leads to the lonely corridor, and the ballroom is to the west."
+
 
 @links
+
 *"trophies", look, trophy-room/trophies.txt
+
 *"ballroom", go, ballroom.txt
+
 *"lonely corridor", go, lonely-corridor.txt

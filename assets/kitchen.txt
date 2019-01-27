@@ -1,6 +1,6 @@
 @room "Kitchen"
 
-"Description"
+"The kitchen is spacious and bright. There's a window facing to the north. There's a fridge and a stove on either side of a door that conceals the stairs to the basement. The dining room is to the south, and to the east is a silent corridor."
 
 @links
 *"fridge", look, kitchen/fridge-look.txt

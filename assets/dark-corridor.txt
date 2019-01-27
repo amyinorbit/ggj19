@@ -1,6 +1,6 @@
 @room "Dark corridor"
 
-"Description"
+"You enter the long, dark corridor. Your shoes make a squelching sound on the wet floor."
 
 @links
 *"foyer", go, foyer.txt
