@@ -6,7 +6,6 @@
 
 
 @links
-*"master bedroom", go, master-bedroom.txt
 
 *"trophies", look, trophy-room/trophies.txt
 

@@ -1,0 +1,6 @@
+@object "Look at the screens" 
+
+"The house is empty. You're alone." 
+
+@links
+*"back", go, secret-room.txt

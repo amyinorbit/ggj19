@@ -1,7 +1,9 @@
 @object "Take the user manual"
 
 
-"You take the user manual. It has the name Better Life Technologies on the front." 
+"You take the user manual. It has the name Farside Heavy Industries on the front.
+
+[Developer note - if you've downloaded this game, please open Manual.pdf now." 
 
 
 @links

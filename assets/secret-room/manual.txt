@@ -1,0 +1,6 @@
+@object "Look at the manual" 
+
+"The manual has the name Farside Heavy Industries across the top. Below it in smaller letters you can read the name FHI432-2.1 Butler 2.0. There's an image on the front in which you recognize the face you saw in the bathroom mirror." 
+
+@links
+*"back", go, secret-room.txt

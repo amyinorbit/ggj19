@@ -1,9 +1,8 @@
 @room "Master Bedroom"
 
-"Description"
+"You enter the master bedroom. There's a double bed with bedside tables on either side. There's a cot in the corner. The dark corridor is to the east." 
 
 @links
-*"trophy room", go, trophy-room.txt
 *"double bed", look, master-bedroom/double-bed.txt
 *"cot", look, master-bedroom/cot.txt
 *"bedside table", look, master-bedroom/bedside-table-look.txt

@@ -3,12 +3,18 @@
 "There's a door to the south. To the west there's a coat rack, with a shoe rack below it. On the same wall there's a door that leads to a dark corridor. Opposite is a chest of drawers.The dining room is to the north, and the living room is to the east. You know this place, but how did you get here?" 
 
 @links 
-*"master bedroom", go, master-bedroom.txt
 *"coat rack", look, foyer/look-coat-rack.txt
 *"shoe rack", look, foyer/look-shoe-rack.txt
 *"drawers", look, foyer/look-drawers.txt
 *"drawers", use, foyer/use-drawers.txt
-*"door", use, foyer/use-door.txt
+*"drawers", open, foyer/use-drawers.txt
+*"chest", look, foyer/look-drawers.txt
+*"chest", use, foyer/use-drawers.txt
+*"chest", open, foyer/use-drawers.txt
+*"chest of drawers", look, foyer/look-drawers.txt
+*"chest of drawers", use, foyer/use-drawers.txt
+*"chest of drawers", open, foyer/use-drawers.txt
+*"door", open, foyer/use-door.txt
 *"dark corridor", go, dark-corridor.txt
 *"dining room", go, dining-room.txt
 *"living room", go, living-room.txt

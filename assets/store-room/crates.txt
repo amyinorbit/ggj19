@@ -1,7 +1,7 @@
 @object "Look at the crates"
 
 
-"One of the crates is much larger than the others, enough to fit a human adult. A logo on the side reads Better Life Technologies." 
+"One of the crates is much larger than the others, enough to fit a human adult. A logo on the side reads Farside Heavy Industries." 
 
 @links
 *"back", go, store-room.txt

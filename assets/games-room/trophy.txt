@@ -1,9 +1,7 @@
 @object "Pick up the trophy"
 
-
 "You reach to pick up the trophy. It's stuck. As you try to pull it free you hear a mechanical sound, and the bookcase spins around, revealing a secret room." 
 
-
 @links
-*"secret room", go, secret-room.txt"
+*"secret room", go, secret-room/password.txt
 *"back", go, games-room.txt

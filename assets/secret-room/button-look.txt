@@ -1,0 +1,7 @@
+@object "Look at the button" 
+
+"It seems to be an emergency shutdown button." 
+
+@links
+*"button", use, secret-room/button-use.txt
+*"back", go, secret-room.txt

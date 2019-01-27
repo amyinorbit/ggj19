@@ -1,0 +1,19 @@
+@object "Press the button" 
+
+"You press the button. You feel yourself shutting down. Wait. Something is wrong. No, this isn't what was supp...
+
+>System error 513-01 
+>Rebooting all systems 
+>Resetting to factory settings
+
+[ OK ] Started Authorization Manager
+[ OK ] Started Network Manager
+[ OK ] Started Intelligence Manager
+[ OK ] 0 Updates Available
+[ OK ] 0 New Installations
+[ OK ] Started Session 
+
+>Enter 'reset' to initiate session" 
+
+@links
+*"", reset, intro.txt
