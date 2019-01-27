@@ -37,7 +37,7 @@ public:
 
 class GGJDriver {
 public:
-    GGJDriver(std::shared_ptr<App> app, std::shared_ptr<IOManaging> io);
+    GGJDriver(App& app, IOManaging& io);
     
     void run();
     void handleInput(const std::string& str);
@@ -46,6 +46,6 @@ public:
     void clear();
     
 private:
-    std::shared_ptr<App>        app_;
-    std::shared_ptr<IOManaging> io_;
+    App&        app_;
+    IOManaging& io_;
 };

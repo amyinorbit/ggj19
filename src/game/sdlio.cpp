@@ -32,7 +32,8 @@ SDLIO::SDLIO(int char_w, int char_h, int mul) {
     
     window_ = SDL_CreateWindow(
         "console", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-        width * mul, height* mul, SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI
+        width * mul, height* mul,
+        SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_FULLSCREEN_DESKTOP
     );
     if (!window_) {
         std::cerr << "cannot create window\n";
@@ -51,11 +52,11 @@ SDLIO::SDLIO(int char_w, int char_h, int mul) {
         renderer_, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_TARGET, width, height
     );
     SDL_SetTextureBlendMode(target_, SDL_BLENDMODE_BLEND);
-	SDL_SetTextureAlphaMod(target_, 0x10);
+	SDL_SetTextureAlphaMod(target_, 0xcc);
 	SDL_SetRenderDrawColor(renderer_, 0x00, 0x00, 0x00, 0xff);
 	SDL_SetRenderDrawBlendMode(renderer_, SDL_BLENDMODE_ADD);
     
-    std::cout << "INIT DONE\n";
+    std::cout << "Graphics subsystem init done\n";
 }
 
 SDLIO::~SDLIO() {

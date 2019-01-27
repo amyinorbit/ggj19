@@ -6,8 +6,8 @@
 #include <game/sdlio.hpp>
 
 int main(int argc, const char** args) {
-    auto io = std::make_shared<SDLIO>(5, 8, 2);
-    auto app = std::make_shared<GGJ19>();
+    SDLIO io(5, 8, 2);
+    GGJ19 app;
     
     auto driver = GGJDriver(app, io);
     driver.run();

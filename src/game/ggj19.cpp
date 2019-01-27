@@ -49,8 +49,6 @@ GGJ19::GGJ19() {
     }
     
     std::cout << entities_.size() << " entities loaded\n";
-    
-    //current_ = findEntity("intro.txt");
 }
 
 GGJEntity* GGJ19::findEntity(const std::string& key) {
@@ -83,7 +81,6 @@ void GGJ19::onFinish(GGJDriver& driver) {
 GGJEntity* GGJ19::checkCommand(const NLCommand& cmd) {
     const auto& links = current_->links;
     const auto it = std::find_if(links.begin(), links.end(), [&](const GGJLink& link) {
-        std::cout << link.verb << "." << link.object << " | " << cmd.verb << "." << cmd.object << "\n";
         return link.verb == cmd.verb && link.object == cmd.object;
     });
     return (it != links.end()) ? it->entity : nullptr;
@@ -92,13 +89,13 @@ GGJEntity* GGJ19::checkCommand(const NLCommand& cmd) {
 void GGJ19::handleInput(GGJDriver& driver, const std::string& str) {
     auto [parseSuccess, command] = parser_.parse(str);
     if(!parseSuccess) {
-        driver.print("nope\n");
+        driver.print("> '" + str + "': nope\n");
         return;
     }
     
     auto next = checkCommand(command);
     if(!next) {
-        driver.print("nuh-uh\n");
+        driver.print("> '" + str + "': nuh-uh\n");
         return;
     }
     
