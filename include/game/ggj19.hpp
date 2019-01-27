@@ -46,7 +46,7 @@ private:
     
     GGJEntity*              current_ = nullptr;
     NLParser                parser_ = NLParser();
-    GGJLoader               loader_ = GGJLoader("intro.txt", "assets/");
+    GGJLoader               loader_ = GGJLoader("intro.txt");
     
     std::vector<GGJEntity>  entities_;
     std::set<std::string>   inventory_;

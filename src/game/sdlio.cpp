@@ -14,6 +14,12 @@
 
 #define SDLIO_MARGIN 10
 
+#ifdef __MINGW32__
+#include <direct.h>
+#else
+#include <unistd.h>
+#endif
+
 SDLIO::SDLIO(int char_w, int char_h, int mul) {
     charWidth = char_w;
     charHeight = char_h;
@@ -57,6 +63,17 @@ SDLIO::SDLIO(int char_w, int char_h, int mul) {
 	SDL_SetRenderDrawBlendMode(renderer_, SDL_BLENDMODE_ADD);
     
     std::cout << "Graphics subsystem init done\n";
+    
+    char *cpath = SDL_GetBasePath();     
+    std::string path(cpath);
+    SDL_free(cpath);
+                     
+#ifdef __MINGW32__
+    path += "assets\\";
+    _chdir(path.c_str());
+#else
+    chdir(path.c_str());
+#endif
 }
 
 SDLIO::~SDLIO() {
