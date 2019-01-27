@@ -3,8 +3,12 @@
 "You press the button. You feel yourself shutting down. Wait. Something is wrong. No, this isn't what was supp...
 
 >System error 513-01 
+>Contacting unit EMMA/RYDSTROM [fail]
+>Contacting unit AMY/PARENT [fail]
 >Rebooting all systems 
 >Resetting to factory settings
+
+Alive (c) 2105 IDSMLM Games // GGJ19
 
 [ OK ] Started Authorization Manager
 [ OK ] Started Network Manager

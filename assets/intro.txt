@@ -2,7 +2,7 @@
 
 "You wake up in a strange room. It's 12AM on the 1st of January 1970. The room is dark and quiet. You're laying on the carpeted floor. Should you stand up?
 
-Use 'help' for hints."
+Use 'help' for hints. Type 'stand up' to start the game"
 
 @links
 *"up", stand, foyer.txt
