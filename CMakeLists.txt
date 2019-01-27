@@ -6,23 +6,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
-# find_package(FreeType 2.9 REQUIRED)
-# find_package(glfw3 3.2 REQUIRED)
-# find_package(OpenGL REQUIRED)
+if(APPLE)
+	find_package(SDL2 REQUIRED)
+	
+	# Configure the bundle
+ELSE()
+	INCLUDE(FindPkgConfig)
+	PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
+ENDIF()
 
-find_package(SDL2 REQUIRED)
-
-
-#INCLUDE(FindPkgConfig)
-#PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
-
-include_directories(${SDL2_INCLUDE_DIRS})
-
-include_directories(include)
-# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fno-exceptions -fno-rtti")
-
+include_directories(include ${SDL2_INCLUDE_DIRS})
 add_subdirectory(src)
-#add_subdirectory(test)
 
 add_custom_target(run
     COMMAND ggj19
