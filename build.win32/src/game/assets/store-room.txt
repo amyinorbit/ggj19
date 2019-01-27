@@ -1,8 +1,0 @@
-@room "Store room"
-
-"Description"
-
-@links
-*"shelves", look, store-room/shelves.txt
-*"crates", look, store-room/crates.txt
-*"basement landing", go, basement-landing.txt

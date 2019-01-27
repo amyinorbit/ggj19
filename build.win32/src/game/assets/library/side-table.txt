@@ -1,7 +1,0 @@
-@object "Look at the side table"
-
-"Description"
-
-@links
-*"books", look, library/books.txt
-*"back", go, library.txt

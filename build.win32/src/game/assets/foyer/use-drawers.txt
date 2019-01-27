@@ -1,6 +1,0 @@
-@object "Open the chest of drawers"
-
-"You open the top drawer. There's some gloves and a set of car keys."
-
-@links
-*"back", go, foyer.txt

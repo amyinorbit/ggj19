@@ -1,6 +1,0 @@
-@object "Look at the shelves"
-
-"Description"
-
-@links
-*"back", go, store-room.txt

@@ -1,7 +1,0 @@
-@object "Pick up the trophy"
-
-"Description"
-
-@links
-*"secret room", go, secret-room.txt"
-*"back", go, games-room.txt

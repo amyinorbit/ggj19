@@ -1,7 +1,0 @@
-@object "Look at the bedside table"
-
-"Description"
-
-@links
-*"bedside table", open, master-bedroom/bedside-table-use.txt
-*"back", go, master-bedroom.txt

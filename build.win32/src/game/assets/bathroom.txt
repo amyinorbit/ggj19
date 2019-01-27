@@ -1,9 +1,0 @@
-@room "Bathroom"
-
-"Description"
-
-@links
-*"bathtub", look, bathroom/bathtub.txt
-*"sink", look, bathroom/sink.txt
-*"mirror", look, bathroom/mirror.txt
-*"dark corridor", go, dark-corridor.txt

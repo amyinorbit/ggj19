@@ -1,6 +1,0 @@
-@object "Can't open the safe"
-
-"Description"
-
-@links
-*"back", go, master-bedroom.txt

@@ -1,6 +1,0 @@
-@object "Take the key"
-
-"Description"
-
-@links
-*"back", go, trophy-room.txt

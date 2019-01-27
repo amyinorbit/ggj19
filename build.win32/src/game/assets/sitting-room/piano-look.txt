@@ -1,7 +1,0 @@
-@object "Look at the piano"
-
-"Description"
-
-@links
-*"piano", use, sitting-room/piano-touch.txt
-*"back", go, sitting-room.txt

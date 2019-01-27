@@ -1,6 +1,0 @@
-@object "Touch the coffee cup"
-
-"You touch the coffee cup. It's still warm." 
-
-@links
-*"back", go, living-room.txt

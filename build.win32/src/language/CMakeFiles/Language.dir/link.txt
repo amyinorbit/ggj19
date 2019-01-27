@@ -1,2 +1,0 @@
-/Users/amy/toolchains/mxe/usr/bin/i686-w64-mingw32.static-ar qc libLanguage.a  CMakeFiles/Language.dir/lexer.cpp.obj CMakeFiles/Language.dir/parser.cpp.obj
-/Users/amy/toolchains/mxe/usr/bin/i686-w64-mingw32.static-ranlib libLanguage.a

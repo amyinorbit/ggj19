@@ -1,6 +1,0 @@
-@object "Look at the newspaper"
-
-"Description"
-
-@links
-*"back", go, study.txt

@@ -1,6 +1,0 @@
-@object "Look at the record player"
-
-"Description"
-
-@links
-*"back", go, study.txt

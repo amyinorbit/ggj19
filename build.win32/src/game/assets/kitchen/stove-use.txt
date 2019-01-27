@@ -1,6 +1,0 @@
-@object "Touch the stove"
-
-"Description"
-
-@links
-*"back", go, kitchen.txt

@@ -1,6 +1,0 @@
-@object "Look at the armchairs"
-
-"Description"
-
-@links
-*"back", go, library.txt

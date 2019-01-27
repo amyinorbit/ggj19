@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libHouse.a  CMakeFiles/House.dir/lexer.cpp.o CMakeFiles/House.dir/file.cpp.o CMakeFiles/House.dir/utf8.c.o CMakeFiles/House.dir/loader.cpp.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libHouse.a

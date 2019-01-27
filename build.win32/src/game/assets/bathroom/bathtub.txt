@@ -1,6 +1,0 @@
-@object "Look at the bathtub"
-
-"Description"
-
-@links
-*"back", go, bathroom.txt

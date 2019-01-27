@@ -1,6 +1,0 @@
-@object "Look at the chairs"
-
-"Description"
-
-@links
-*"back", go, dining-room.txt

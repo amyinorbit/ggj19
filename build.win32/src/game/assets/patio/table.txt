@@ -1,6 +1,0 @@
-@object "Look at the table"
-
-"Description"
-
-@links
-*"back", go, patio.txt

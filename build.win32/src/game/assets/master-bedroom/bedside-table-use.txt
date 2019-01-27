@@ -1,7 +1,0 @@
-@object "Open the bedside table"
-
-"Description"
-
-@links
-*"safe", use, master-bedroom/safe.txt
-*"back", go, master-bedroom.txt

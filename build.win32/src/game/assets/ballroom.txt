@@ -1,9 +1,0 @@
-@room "Ballroom"
-
-"Description"
-
-@links
-*"chairs", look, ballroom/chairs.txt
-*"silent corridor", go, silent-corridor.txt
-*"sitting room", go, sitting-room.txt
-*"trophy room", go, trophy-room.txt

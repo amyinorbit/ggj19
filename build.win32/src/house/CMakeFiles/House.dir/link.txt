@@ -1,2 +1,0 @@
-/Users/amy/toolchains/mxe/usr/bin/i686-w64-mingw32.static-ar qc libHouse.a  CMakeFiles/House.dir/lexer.cpp.obj CMakeFiles/House.dir/file.cpp.obj CMakeFiles/House.dir/utf8.c.obj CMakeFiles/House.dir/loader.cpp.obj
-/Users/amy/toolchains/mxe/usr/bin/i686-w64-mingw32.static-ranlib libHouse.a

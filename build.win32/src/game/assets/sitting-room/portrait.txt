@@ -1,6 +1,0 @@
-@object "Look at the family portrait"
-
-"Description"
-
-@links
-*"back", go, sitting-room.txt

@@ -1,6 +1,0 @@
-@object "Look at the mirror"
-
-"Description"
-
-@links
-*"back", go, bathroom.txt

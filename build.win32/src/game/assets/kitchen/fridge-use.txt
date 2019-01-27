@@ -1,6 +1,0 @@
-@object "Open the fridge"
-
-"Description"
-
-@links
-*"back", go, kitchen.txt

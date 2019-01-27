@@ -1,6 +1,0 @@
-@object "Look at the fireplace"
-
-"The embers glow warm and bright, yet you feel cold. Who lit the fire that died here? Where are they now?" 
-
-@links
-*"back", go, living-room.txt

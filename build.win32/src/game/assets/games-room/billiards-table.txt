@@ -1,6 +1,0 @@
-@object "Look at the billiards table "
-
-"Description"
-
-@links
-*"back", go, games-room.txt

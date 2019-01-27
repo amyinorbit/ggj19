@@ -1,7 +1,0 @@
-@object "Look at the desk"
-
-"Description"
-
-@links
-*"newspaper", look, study/newspaper.txt
-*"back", go, study.txt

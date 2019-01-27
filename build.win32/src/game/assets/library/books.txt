@@ -1,6 +1,0 @@
-@object "Look at the stack of books"
-
-"Description"
-
-@links
-*"back", go, library.txt

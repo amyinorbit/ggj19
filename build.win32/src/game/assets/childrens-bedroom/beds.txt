@@ -1,6 +1,0 @@
-@object "Look at the beds"
-
-"Description"
-
-@links
-*"back", go, childrens-bedroom.txt
