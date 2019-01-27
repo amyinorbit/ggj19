@@ -3,8 +3,9 @@
 "Description"
 
 @links
+*"trophy room", go, trophy-room.txt
 *"double bed", look, master-bedroom/double-bed.txt
 *"cot", look, master-bedroom/cot.txt
 *"bedside table", look, master-bedroom/bedside-table-look.txt
-*"bedside table", use, master-bedroom/bedside-table-use.txt
+*"bedside table", open, master-bedroom/bedside-table-use.txt
 *"dark corridor", go, dark-corridor.txt

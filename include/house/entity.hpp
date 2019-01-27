@@ -17,6 +17,7 @@ struct GGJLink {
     std::string     object;
     std::string     verb;
     std::string     key;
+    std::string     lock;
     GGJEntity*      entity;
 };
 

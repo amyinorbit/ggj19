@@ -42,6 +42,7 @@ private:
     GGJEntity* handleInventory(GGJDriver& driver);
     GGJEntity* handleHelp(GGJDriver& driver);
     GGJEntity* handleLink(GGJDriver& driver, NLCommand& cmd);
+    GGJEntity* handleReset(GGJDriver& driver);
     
     GGJEntity*              current_ = nullptr;
     NLParser                parser_ = NLParser();

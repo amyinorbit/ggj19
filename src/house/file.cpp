@@ -98,10 +98,20 @@ GGJLink GGJFile::recLink() {
     match(GGJToken::Identifier, "Invalid link file name '" + keyTok.text + "'");
     // match(GGJToken::Newline);
     
+    
     GGJLink link;
     link.object = objTok.text;
     link.verb = verbTok.text;
     link.key = keyTok.text;
+    link.lock = "";
     link.entity = nullptr;
+    
+    if (have(GGJToken::Comma)) {
+        match(GGJToken::Comma);
+        const auto lockTok = currentToken_;
+        match(GGJToken::QuotedString, "Invalid link lock name (not quoted?)");
+        link.lock = lockTok.text;
+    }
+    
     return link;
 }

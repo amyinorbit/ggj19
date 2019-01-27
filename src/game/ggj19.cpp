@@ -32,9 +32,11 @@ GGJ19::GGJ19() {
     parser_.addVerb(NLVerb("stand"));
     parser_.addVerb(NLVerb("look"));
     parser_.addVerb(NLVerb("open"));
+    parser_.addVerb(NLVerb("better"));
     
     parser_.addVerb(NLVerb("help"));
     parser_.addVerb(NLVerb("inventory"));
+    parser_.addVerb(NLVerb("reset"));
 
     parser_.addArticle("the");
     parser_.addArticle("a");
@@ -45,6 +47,7 @@ GGJ19::GGJ19() {
 
 void GGJ19::resetStory() {
     // Load in the story data
+    inventory_.clear();
     entities_.clear();
     const auto data = loader_.compileGraph();
     for (const auto& p: data) {
@@ -111,6 +114,8 @@ GGJEntity* GGJ19::handleVerb(GGJDriver& driver, NLCommand& cmd) {
         return handleInventory(driver);
     if (cmd.verb == "help")
         return handleHelp(driver);
+    if (cmd.verb == "reset")
+        return handleReset(driver);
     return handleLink(driver, cmd);
 }
 
@@ -139,7 +144,7 @@ GGJEntity* GGJ19::handleInventory(GGJDriver& driver) {
 }
 
 GGJEntity* GGJ19::handleHelp(GGJDriver& driver) {
-    driver.print("\ncommands:\n - go [to] (enter, walk)\n - use (toggle, touch)\n - take (get, grab)\n - stand\n - look\n - open\n - /inventory");
+    driver.print("\ncommands:\n - go [to] (enter, walk)\n - use (toggle, touch)\n - take (get, grab)\n - stand\n - look\n - open\n - go back\n - inventory");
     return nullptr;
 }
 
@@ -149,8 +154,23 @@ GGJEntity* GGJ19::handleLink(GGJDriver& driver, NLCommand& cmd) {
     const auto it = std::find_if(links.begin(), links.end(), [&](const GGJLink& link) {
         return link.verb == cmd.verb && link.object == cmd.object;
     });
-    if (it != links.end()) return it->entity;
+    if (it == links.end()) {
+        driver.print("> nah, you can't do that\n");
+        return nullptr;
+    }
     
-    driver.print("> nah, you can't do that\n");
+    if (!it->lock.size()) return it->entity;
+    
+    // We need an item from the inventory:
+    const auto lock = it->lock;
+    const auto item = inventory_.find(lock);
+    if (item != inventory_.end()) return it->entity;
+    
+    driver.print("> Nuh-uh. You need '" + lock + "'");
     return nullptr;
+}
+
+GGJEntity* GGJ19::handleReset(GGJDriver& driver) {
+    resetStory();
+    return findEntity("intro.txt");
 }

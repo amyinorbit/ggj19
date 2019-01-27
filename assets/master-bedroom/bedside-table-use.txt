@@ -3,5 +3,5 @@
 "There's a safe in the bedside table. It seems to require a key to open." 
 
 @links
-*"safe", use, master-bedroom/safe.txt
+*"safe", open, master-bedroom/safe.txt, "key"
 *"back", go, master-bedroom.txt
