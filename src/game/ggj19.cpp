@@ -32,7 +32,7 @@ GGJ19::GGJ19() {
     parser_.addVerb(NLVerb("stand"));
     parser_.addVerb(NLVerb("look"));
     parser_.addVerb(NLVerb("open"));
-    parser_.addVerb(NLVerb("better"));
+    parser_.addVerb(NLVerb("farside"));
     
     parser_.addVerb(NLVerb("help"));
     parser_.addVerb(NLVerb("inventory"));
