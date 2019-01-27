@@ -113,6 +113,7 @@ const GGJToken& GGJFile::nextToken() {
             case 0x000b:
             case 0x000c:
             case 0x000a:
+            case 0xfeff:
                 break;
 
             // // line feed

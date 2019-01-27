@@ -1,0 +1,6 @@
+@object "Look at the coat rack"
+
+"The coat rack is covered in jackets in various sizes." 
+
+@links
+*"back", go, foyer.txt

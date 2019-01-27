@@ -1,0 +1,7 @@
+@object "Look at the stove"
+
+"Description"
+
+@links
+*"stove", use, kitchen/stove-use.txt
+*"back", go, kitchen.txt

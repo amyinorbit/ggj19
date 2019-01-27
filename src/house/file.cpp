@@ -23,11 +23,11 @@ GGJEntity GGJFile::compile() {
     ptr_ = 0;
     
     nextToken();
-    const auto [kind, name] = recHeader();
+    const auto headerData = recHeader();
     
     entity.key = key_;
-    entity.kind = kind;
-    entity.name = name;
+    entity.kind = headerData.first;
+    entity.name = headerData.second;
     entity.desc = recDescription();
     entity.links = recLinks();
     

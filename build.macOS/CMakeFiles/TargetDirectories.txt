@@ -1,0 +1,14 @@
+/Users/amy/workspace/gamedev/ggj19/build.macOS/CMakeFiles/rebuild_cache.dir
+/Users/amy/workspace/gamedev/ggj19/build.macOS/CMakeFiles/edit_cache.dir
+/Users/amy/workspace/gamedev/ggj19/build.macOS/CMakeFiles/run.dir
+/Users/amy/workspace/gamedev/ggj19/build.macOS/src/CMakeFiles/rebuild_cache.dir
+/Users/amy/workspace/gamedev/ggj19/build.macOS/src/CMakeFiles/edit_cache.dir
+/Users/amy/workspace/gamedev/ggj19/build.macOS/src/language/CMakeFiles/rebuild_cache.dir
+/Users/amy/workspace/gamedev/ggj19/build.macOS/src/language/CMakeFiles/edit_cache.dir
+/Users/amy/workspace/gamedev/ggj19/build.macOS/src/language/CMakeFiles/Language.dir
+/Users/amy/workspace/gamedev/ggj19/build.macOS/src/house/CMakeFiles/rebuild_cache.dir
+/Users/amy/workspace/gamedev/ggj19/build.macOS/src/house/CMakeFiles/edit_cache.dir
+/Users/amy/workspace/gamedev/ggj19/build.macOS/src/house/CMakeFiles/House.dir
+/Users/amy/workspace/gamedev/ggj19/build.macOS/src/game/CMakeFiles/rebuild_cache.dir
+/Users/amy/workspace/gamedev/ggj19/build.macOS/src/game/CMakeFiles/edit_cache.dir
+/Users/amy/workspace/gamedev/ggj19/build.macOS/src/game/CMakeFiles/ggj19.dir

@@ -11,13 +11,18 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 # find_package(OpenGL REQUIRED)
 
 find_package(SDL2 REQUIRED)
+
+
+#INCLUDE(FindPkgConfig)
+#PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
+
 include_directories(${SDL2_INCLUDE_DIRS})
 
 include_directories(include)
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fno-exceptions -fno-rtti")
 
 add_subdirectory(src)
-add_subdirectory(test)
+#add_subdirectory(test)
 
 add_custom_target(run
     COMMAND ggj19

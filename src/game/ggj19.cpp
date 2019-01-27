@@ -37,8 +37,11 @@ GGJ19::GGJ19() {
     parser_.addArticle("an");
     parser_.addArticle("to");
     parser_.addArticle("at");
-    
+}
+
+void GGJ19::resetStory() {
     // Load in the story data
+    entities_.clear();
     const auto data = loader_.compileGraph();
     for (const auto& p: data) {
         entities_.push_back(p.second);
@@ -47,7 +50,6 @@ GGJ19::GGJ19() {
     for (auto& entity: entities_) {
         resolveLinks(entity);
     }
-    
     std::cout << entities_.size() << " entities loaded\n";
 }
 
@@ -70,13 +72,13 @@ void GGJ19::resolveLinks(GGJEntity& entity) {
 }
 
 void GGJ19::onStart(GGJDriver& driver) {
+    resetStory();
     showEntity(driver, findEntity("intro.txt"));
 }
 
 void GGJ19::onFinish(GGJDriver& driver) {
     
 }
-
 
 GGJEntity* GGJ19::checkCommand(const NLCommand& cmd) {
     const auto& links = current_->links;
@@ -87,12 +89,13 @@ GGJEntity* GGJ19::checkCommand(const NLCommand& cmd) {
 }
 
 void GGJ19::handleInput(GGJDriver& driver, const std::string& str) {
-    auto [parseSuccess, command] = parser_.parse(str);
-    if(!parseSuccess) {
+    auto result = parser_.parse(str);
+    if(!result.first) {
         driver.print("> '" + str + "': nope\n");
         return;
     }
     
+    auto command = result.second;
     auto next = checkCommand(command);
     if(!next) {
         driver.print("> '" + str + "': nuh-uh\n");
@@ -107,4 +110,8 @@ void GGJ19::showEntity(GGJDriver& driver, GGJEntity* entity) {
     driver.print(entity->name + "\n\n");
     driver.print(entity->desc + "\n\n");
     current_ = entity;
+}
+
+bool GGJ19::handleSpecialVerb(GGJDriver& driver, NLCommand& cmd) {
+    return false;
 }

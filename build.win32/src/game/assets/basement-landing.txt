@@ -1,0 +1,8 @@
+@room "Basement landing"
+
+"Description"
+
+@links
+*"kitchen", go, kitchen.txt
+*"store room", go, store-room.txt
+*"games room", go, games-room.txt

@@ -1,0 +1,6 @@
+@object "Look out of the window"
+
+"Description"
+
+@links
+*"back", go, kitchen.txt

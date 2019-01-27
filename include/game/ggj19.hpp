@@ -10,6 +10,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <set>
 #include <house/loader.hpp>
 #include <house/entity.hpp>
 #include <game/driver.hpp>
@@ -26,14 +27,26 @@ public:
     virtual void handleInput(GGJDriver& driver, const std::string& str);
     
 private:
+    void resetStory();
     GGJEntity* findEntity(const std::string& key);
     void resolveLinks(GGJEntity& entity);
     
     GGJEntity* checkCommand(const NLCommand& cmd);
     void showEntity(GGJDriver& driver, GGJEntity* entity);
     
+    // Handles non-story related verbs, or things that can change inventory and all
+    // Returns true if the verb has been fully handled and there is no need for the game to
+    // take further action
+    bool handleSpecialVerb(GGJDriver& driver, NLCommand& cmd);
+    
+    bool handleInventory(GGJDriver& driver);
+    bool handleHelp(GGJDriver& driver);
+    bool handleReset(GGJDriver& driver);
+    
     GGJEntity*              current_ = nullptr;
     NLParser                parser_ = NLParser();
     GGJLoader               loader_ = GGJLoader("intro.txt", "assets/");
+    
     std::vector<GGJEntity>  entities_;
+    std::set<std::string>   inventory_;
 };

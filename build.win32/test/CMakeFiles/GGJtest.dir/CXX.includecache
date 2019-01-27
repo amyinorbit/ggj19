@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/language/command.hpp
+string
+-
+
+../include/language/parser.hpp
+string
+-
+vector
+-
+utility
+-
+language/command.hpp
+-
+
+/Users/amy/workspace/gamedev/ggj19/test/test.cpp
+iostream
+-
+string
+-
+language/parser.hpp
+-
+

@@ -1,0 +1,3 @@
+/Users/amy/toolchains/mxe/usr/x86_64-apple-darwin17.3.0/bin/cmake -E remove -f CMakeFiles/GGJtest.dir/objects.a
+/Users/amy/toolchains/mxe/usr/bin/i686-w64-mingw32.static-ar cr CMakeFiles/GGJtest.dir/objects.a @CMakeFiles/GGJtest.dir/objects1.rsp
+/Users/amy/toolchains/mxe/usr/bin/i686-w64-mingw32.static-g++ -O3 -DNDEBUG   -Wl,--whole-archive CMakeFiles/GGJtest.dir/objects.a -Wl,--no-whole-archive  -o GGJtest.exe -Wl,--out-implib,libGGJtest.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/GGJtest.dir/linklibs.rsp

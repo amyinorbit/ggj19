@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/game/font.h
+stdint.h
+-
+
+/Users/amy/workspace/gamedev/ggj19/src/game/font.c
+game/font.h
+-
+

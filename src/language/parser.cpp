@@ -7,6 +7,7 @@
 // Licensed under the MIT License
 // =^•.•^=
 //===--------------------------------------------------------------------------------------------===
+#include <algorithm>
 #include <cassert>
 #include <language/lexer.hpp>
 #include <language/parser.hpp>
@@ -45,7 +46,9 @@ void NLParser::addVerb(const NLVerb& verb) {
 // RECURSIVE DESCENT YAY
 
 bool NLParser::isVerb(const NLLexer& lexer) {
-    auto [tok, eof] = lexer.currentToken();
+    const auto& result = lexer.currentToken();
+    const auto& tok = result.first;
+    const auto eof = result.second;
     if (eof) return false;
     
     const auto it = std::find_if(verbs.begin(), verbs.end(), [tok=tok](const NLVerb& verb) {
@@ -55,13 +58,18 @@ bool NLParser::isVerb(const NLLexer& lexer) {
 }
 
 bool NLParser::isArticle(const NLLexer& lexer) {
-    const auto& [tok, eof] = lexer.currentToken();
+    const auto& result = lexer.currentToken();
+    const auto& tok = result.first;
+    const auto eof = result.second;
     if (eof) return false;
     return std::find(articles.begin(), articles.end(), tok) != articles.end();
 }
 
 std::string NLParser::canonicalVerb(const NLLexer& lexer) {
-    const auto& [tok, eof] = lexer.currentToken();
+    const auto& result = lexer.currentToken();
+    const auto& tok = result.first;
+    const auto eof = result.second;
+    
     assert(!eof && "invalid token!");
     const auto it = std::find_if(verbs.begin(), verbs.end(), [tok=tok](const NLVerb& verb) {
         return verb.matches(tok);

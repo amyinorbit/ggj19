@@ -1,0 +1,6 @@
+@object "Use the piano"
+
+"Description"
+
+@links
+*"back", go, sitting-room.txt

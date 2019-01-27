@@ -1,0 +1,6 @@
+@object "Look at the double bed"
+
+"Description"
+
+@links
+*"back", go, master-bedroom.txt

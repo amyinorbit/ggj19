@@ -1,0 +1,7 @@
+@object "Look at the coffee table"
+
+"There's a cup of coffee on the table. It's full." 
+
+@links
+*"back", go, living-room.txt
+*"cup", use, living-room/coffee-cup.txt

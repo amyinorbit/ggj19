@@ -1,0 +1,7 @@
+@object "Look at the billiards trophy"
+
+"Description"
+
+@links
+*"key", take, trophy-room/key.txt
+*"back", go, trophy-room.txt

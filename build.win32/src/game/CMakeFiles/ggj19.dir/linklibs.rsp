@@ -1,0 +1,1 @@
+../house/libHouse.a ../language/libLanguage.a -lmingw32 -lSDL2main -lSDL2 -lm -lsamplerate -ldinput8 -ldxguid -ldxerr8 -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lshell32 -lversion -luuid -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

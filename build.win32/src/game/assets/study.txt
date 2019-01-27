@@ -1,0 +1,9 @@
+@room "Study"
+
+"Description"
+
+@links
+*"desk", look, study/desk.txt
+*"record player", look, study/record-player.txt
+*"lonely corridor", go, lonely-corridor.txt
+*"library", go, library.txt
