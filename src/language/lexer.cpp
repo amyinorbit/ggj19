@@ -40,7 +40,7 @@ std::string NLLexer::cut(std::size_t start, std::size_t end) {
 const NLToken& NLLexer::lexIdent() {
     const auto start = ptr_-1;
     
-    while(std::isalnum(current())) {
+    while(std::isalnum(current()) || current() == '-' || current() == '\'') {
         nextChar();
     }
     const auto end = ptr_;
