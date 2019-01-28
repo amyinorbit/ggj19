@@ -1,9 +1,9 @@
 @room "Dark corridor"
 
-"You enter the long, dark corridor. Your shoes make a squelching sound on the wet floor."
+"You enter the long, dark corridor. Your shoes make a squelching sound on the wet floor. The foyer is to the east. There are two doors to the north, what looks like a children's bedroom, and a bathroom. A door at the west end of the corridor seems to lead to the master bedroom."
 
 @links
 *"foyer", go, foyer.txt
-*"childrens bedroom", go, childrens-bedroom.txt
+*"children's bedroom", go, childrens-bedroom.txt
 *"bathroom", go, bathroom.txt
 *"master bedroom", go, master-bedroom.txt
