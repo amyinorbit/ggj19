@@ -44,6 +44,7 @@ private:
     
     int lagHead_;
     
+    int width, height;
     int charWidth, charHeight;
     SDL_Window* window_;
     SDL_Renderer* renderer_;

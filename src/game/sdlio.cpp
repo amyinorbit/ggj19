@@ -12,7 +12,7 @@
 #include <game/sdlio.hpp>
 #include <game/font.h>
 
-#define SDLIO_MARGIN 10
+#define SDLIO_MARGIN 20
 
 #ifdef __MINGW32__
 #include <direct.h>
@@ -33,8 +33,8 @@ SDLIO::SDLIO(int char_w, int char_h, int mul) {
         abort();
     }
     
-    int width = ((char_w+2) * SDLIO_COLS) + (SDLIO_MARGIN*2);
-    int height = ((char_h+2) * SDLIO_ROWS) + (SDLIO_MARGIN*2);
+    width = ((char_w+2) * SDLIO_COLS) + (SDLIO_MARGIN*2);
+    height = ((char_h+2) * SDLIO_ROWS) + (SDLIO_MARGIN*2);
     
     window_ = SDL_CreateWindow(
         "console", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
