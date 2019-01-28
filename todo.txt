@@ -1,13 +1,16 @@
-#TODO
+# TODO
  - Add ability to go north/east/west/south
  - [Dark Corridor] Add bedrooms and bathroom in description
  - find better alternative to typing "go back"
  - Add grab as synonym for take
  - add options to omit adjectives in object names (brackets around essential part?) portrait
  - use + open fridge
- - [Password] change name of room to something else
- - [Password] Can’t go back
  - Can take anything and put it in the inventory  (?)
  - [Master Bedroom/Open Safe] The developer’s manual note isn’t in the description 
  - [Foyer/Drawers] Remove car keys
  - Look at screens/look at screen/look at monitor/look at monitors/display/displays
+ 
+# TODONE
+ - [Password] change name of room to something else -> Renamed to "Authentication required"
+ - [Password] Can’t go back
+ 
