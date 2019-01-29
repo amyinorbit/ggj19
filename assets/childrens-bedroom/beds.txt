@@ -3,4 +3,3 @@
 "The beds are small, with white and yellow bed covers." 
 
 @links
-*"back", go, childrens-bedroom.txt

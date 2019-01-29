@@ -9,4 +9,3 @@
 *"trophy", use, games-room/trophy.txt
 *"trophy", take, games-room/trophy.txt
 
-*"back", go, games-room.txt

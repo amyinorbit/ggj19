@@ -11,6 +11,7 @@
 #include <string>
 #include <vector>
 #include <set>
+#include <utility>
 #include <house/loader.hpp>
 #include <house/entity.hpp>
 #include <game/driver.hpp>
@@ -38,15 +39,19 @@ private:
     // take further action
     GGJEntity* handleVerb(GGJDriver& driver, NLCommand& cmd);
     
+    std::pair<bool, GGJLink> findLink(const GGJEntity&, NLCommand& cmd);
+    
+    GGJEntity* handleGoBack(GGJDriver& driver);
     GGJEntity* handleTake(GGJDriver& driver, NLCommand& cmd);
     GGJEntity* handleInventory(GGJDriver& driver);
     GGJEntity* handleHelp(GGJDriver& driver);
     GGJEntity* handleLink(GGJDriver& driver, NLCommand& cmd);
     GGJEntity* handleReset(GGJDriver& driver);
     
-    GGJEntity*              current_ = nullptr;
-    NLParser                parser_ = NLParser();
-    GGJLoader               loader_ = GGJLoader("intro.txt");
+    GGJEntity*              context_    = nullptr;
+    GGJEntity*              current_    = nullptr;
+    NLParser                parser_     = NLParser();
+    GGJLoader               loader_     = GGJLoader("intro.txt");
     
     std::vector<GGJEntity>  entities_;
     std::set<std::string>   inventory_;

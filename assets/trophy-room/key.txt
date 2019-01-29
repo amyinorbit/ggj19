@@ -6,4 +6,3 @@
 
 @links
 
-*"back", go, trophy-room.txt

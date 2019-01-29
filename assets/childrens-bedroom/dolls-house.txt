@@ -2,4 +2,3 @@
 
 "The doll's house is very large and detailed. The dolls are on the floor, as if they were suddenly dropped."
 @links
-*"back", go, childrens-bedroom.txt

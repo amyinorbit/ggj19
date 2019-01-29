@@ -6,4 +6,3 @@
 
 
 @links
-*"back", go, library.txt

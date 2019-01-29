@@ -5,4 +5,3 @@
 
 
 @links
-*"back", go, store-room.txt

@@ -4,4 +4,3 @@
 "You look into the mirror. You don't recognize the face staring back at you." 
 
 @links
-*"back", go, bathroom.txt

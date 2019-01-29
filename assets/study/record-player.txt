@@ -8,4 +8,3 @@
 
 @links
 
-*"back", go, study.txt

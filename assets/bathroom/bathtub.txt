@@ -3,4 +3,3 @@
 "The taps are on and the bathtub is overflowing. Water is cascading down its sides and flooding the floor." 
 
 @links
-*"back", go, bathroom.txt

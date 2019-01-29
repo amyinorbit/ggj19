@@ -4,4 +4,3 @@
 
 @links
 *"books", look, library/books.txt
-*"back", go, library.txt

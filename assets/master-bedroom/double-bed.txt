@@ -3,4 +3,3 @@
 "It's a large, neat bed." 
 
 @links
-*"back", go, master-bedroom.txt

@@ -101,13 +101,23 @@ void GGJ19::handleInput(GGJDriver& driver, const std::string& str) {
 }
 
 void GGJ19::showEntity(GGJDriver& driver, GGJEntity* entity) {
-    driver.clear();
+    if (entity->kind == GGJKind::Room) {
+        // Reset the room to current
+        context_ = entity;
+        driver.clear();
+    } else {
+        current_ = entity;
+        driver.print("> ");
+    }
+    
     driver.print(entity->name + "\n\n");
     driver.print(entity->desc + "\n\n");
     current_ = entity;
 }
 
 GGJEntity* GGJ19::handleVerb(GGJDriver& driver, NLCommand& cmd) {
+    if (cmd.verb == "go")
+        return (cmd.object == "back") ? handleGoBack(driver) : handleLink(driver, cmd);
     if (cmd.verb == "take")
         return handleTake(driver, cmd);
     if (cmd.verb == "inventory")
@@ -117,6 +127,15 @@ GGJEntity* GGJ19::handleVerb(GGJDriver& driver, NLCommand& cmd) {
     if (cmd.verb == "reset")
         return handleReset(driver);
     return handleLink(driver, cmd);
+}
+
+GGJEntity* GGJ19::handleGoBack(GGJDriver& driver) {
+    if (context_ && (context_ != current_)) {
+        return context_;
+    } else {
+        driver.print("you can't go back just now");
+        return nullptr;
+    }
 }
 
 GGJEntity* GGJ19::handleTake(GGJDriver& driver, NLCommand& cmd) {
@@ -149,24 +168,39 @@ GGJEntity* GGJ19::handleHelp(GGJDriver& driver) {
 }
 
 
-GGJEntity* GGJ19::handleLink(GGJDriver& driver, NLCommand& cmd) {
-    const auto& links = current_->links;
+
+std::pair<bool, GGJLink> GGJ19::findLink(const GGJEntity& entity, NLCommand& cmd) {
+    const auto& links = entity.links;
     const auto it = std::find_if(links.begin(), links.end(), [&](const GGJLink& link) {
         return link.verb == cmd.verb && link.object == cmd.object;
     });
     if (it == links.end()) {
+        return std::make_pair(false, GGJLink());
+    }
+    return std::make_pair(true, *it);
+}
+
+GGJEntity* GGJ19::handleLink(GGJDriver& driver, NLCommand& cmd) {
+    
+    auto result = findLink(*current_, cmd);
+    if (!result.first && context_) {
+        result = findLink(*context_, cmd);
+    }
+    
+    if (!result.first) {
         driver.print("> nah, you can't do that\n");
         return nullptr;
     }
+    auto link = result.second;
+    if (!link.lock.size()) return link.entity;
     
-    if (!it->lock.size()) return it->entity;
+    // if (!it->lock.size()) return it->entity;
     
     // We need an item from the inventory:
-    const auto lock = it->lock;
-    const auto item = inventory_.find(lock);
-    if (item != inventory_.end()) return it->entity;
+    const auto item = inventory_.find(link.lock);
+    if (item != inventory_.end()) return link.entity;
     
-    driver.print("> Nuh-uh. You need '" + lock + "'");
+    driver.print("> Nuh-uh. You need '" + link.lock + "'");
     return nullptr;
 }
 

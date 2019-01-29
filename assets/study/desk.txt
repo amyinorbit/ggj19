@@ -10,4 +10,3 @@
 
 *"newspaper", look, study/newspaper.txt
 
-*"back", go, study.txt

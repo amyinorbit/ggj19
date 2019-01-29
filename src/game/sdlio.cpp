@@ -39,7 +39,7 @@ SDLIO::SDLIO(int char_w, int char_h, int mul) {
     window_ = SDL_CreateWindow(
         "console", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
         width * mul, height* mul,
-        SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_FULLSCREEN_DESKTOP
+        SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_RESIZABLE
     );
     if (!window_) {
         std::cerr << "cannot create window\n";

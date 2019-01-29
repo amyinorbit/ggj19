@@ -3,4 +3,3 @@
 "They're children's books."
 
 @links
-*"back", go, library.txt

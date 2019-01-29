@@ -3,4 +3,3 @@
 "The sink is white and shiny." 
 
 @links
-*"back", go, bathroom.txt

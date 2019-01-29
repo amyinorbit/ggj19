@@ -4,4 +4,3 @@
 "It's a cot for a small baby. There's a mobile above it playing a slow tune." 
 
 @links
-*"back", go, master-bedroom.txt
