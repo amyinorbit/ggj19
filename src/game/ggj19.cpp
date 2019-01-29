@@ -102,14 +102,14 @@ void GGJ19::handleInput(GGJDriver& driver, const std::string& str) {
 
 void GGJ19::showEntity(GGJDriver& driver, GGJEntity* entity) {
     if (entity->kind == GGJKind::Room) {
-        // Reset the room to current
-        context_ = entity;
+        context_.clear();
+        context_.push_back(entity);
         driver.clear();
     } else {
+        context_.push_back(current_);
         current_ = entity;
     }
     driver.print("> ");
-    
     driver.print(entity->name + "\n");
     driver.print(entity->desc + "\n\n");
     current_ = entity;
@@ -130,8 +130,10 @@ GGJEntity* GGJ19::handleVerb(GGJDriver& driver, NLCommand& cmd) {
 }
 
 GGJEntity* GGJ19::handleGoBack(GGJDriver& driver) {
-    if (context_ && (context_ != current_)) {
-        return context_;
+    if (context_.size() && context_.back() != current_) {
+        auto* prev = context_.front();
+        context_.clear();
+        return prev;
     } else {
         driver.print("you can't go back just now");
         return nullptr;
@@ -183,8 +185,12 @@ std::pair<bool, GGJLink> GGJ19::findLink(const GGJEntity& entity, NLCommand& cmd
 GGJEntity* GGJ19::handleLink(GGJDriver& driver, NLCommand& cmd) {
     
     auto result = findLink(*current_, cmd);
-    if (!result.first && context_) {
-        result = findLink(*context_, cmd);
+    
+    int ctxIndex = context_.size()-1;
+    
+    while(!result.first && ctxIndex >= 0) {
+        result = findLink(*context_[ctxIndex], cmd);
+        ctxIndex -= 1;
     }
     
     if (!result.first) {
@@ -206,5 +212,6 @@ GGJEntity* GGJ19::handleLink(GGJDriver& driver, NLCommand& cmd) {
 
 GGJEntity* GGJ19::handleReset(GGJDriver& driver) {
     resetStory();
+    context_.clear();
     return findEntity("intro.txt");
 }
