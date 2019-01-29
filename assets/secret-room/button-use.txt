@@ -1,4 +1,4 @@
-@object "Press the button" 
+@room "RESET_BTN_PRESS" 
 
 "You press the button. You feel yourself shutting down. Wait. Something is wrong. No, this isn't what was supp...
 

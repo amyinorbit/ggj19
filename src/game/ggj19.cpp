@@ -107,10 +107,10 @@ void GGJ19::showEntity(GGJDriver& driver, GGJEntity* entity) {
         driver.clear();
     } else {
         current_ = entity;
-        driver.print("> ");
     }
+    driver.print("> ");
     
-    driver.print(entity->name + "\n\n");
+    driver.print(entity->name + "\n");
     driver.print(entity->desc + "\n\n");
     current_ = entity;
 }
@@ -157,7 +157,7 @@ GGJEntity* GGJ19::handleTake(GGJDriver& driver, NLCommand& cmd) {
 GGJEntity* GGJ19::handleInventory(GGJDriver& driver) {
     driver.print("\nyou have:\n");
     for (const auto& obj: inventory_) {
-        driver.print(" - " + obj);
+        driver.print(" - " + obj + "\n");
     }
     return nullptr;
 }
