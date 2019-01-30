@@ -174,7 +174,12 @@ void SDLIO::blitOutput() {
     
     for (char c: outBuffer_) {
         int line = address / SDLIO_COLS;
-        if (line > (SDLIO_ROWS - 3)) break;
+        //if (line > (SDLIO_ROWS - 3)) break;
+        if (line > (SDLIO_ROWS - 3)) {
+            scrollUp();
+            address -= SDLIO_COLS;
+            line -= 1;
+        }
         if (c == '\n') {
             address = (line+1) * SDLIO_COLS;
             continue;
@@ -195,6 +200,14 @@ void SDLIO::blitInput() {
     for (int i = 0; i < (SDLIO_COLS-2) && i < inBuffer_.size(); ++i) {
         screen_[offset+2+i] = inBuffer_[i];
     }
+}
+
+void SDLIO::scrollUp() {
+    for (int i = SDLIO_COLS; i < SDLIO_COLS*SDLIO_ROWS; ++i) {
+        screen_[i - SDLIO_COLS] = screen_[i];
+        screen_[i] = '\0';
+    }
+    dirty_ = true;
 }
 
 void SDLIO::updateLag() {

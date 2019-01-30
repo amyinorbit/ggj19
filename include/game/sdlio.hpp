@@ -33,6 +33,7 @@ private:
     
     void blitOutput();
     void blitInput();
+    void scrollUp();
     
     void clearScreenBuffer();
     void updateLag();
