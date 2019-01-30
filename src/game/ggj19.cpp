@@ -88,9 +88,10 @@ void GGJ19::onFinish(GGJDriver& driver) {
 }
 
 void GGJ19::handleInput(GGJDriver& driver, const std::string& str) {
+    driver.print("> " + str + "\n");
     auto result = parser_.parse(str);
     if(!result.first) {
-        driver.print("> what?\n");
+        driver.print("What do you mean?\n");
         return;
     }
     
@@ -105,12 +106,11 @@ void GGJ19::showEntity(GGJDriver& driver, GGJEntity* entity) {
         context_.clear();
         context_.push_back(entity);
         driver.clear();
+        driver.print("* " + entity->name + "\n");
     } else {
         context_.push_back(current_);
         current_ = entity;
     }
-    driver.print("> ");
-    driver.print(entity->name + "\n");
     driver.print(entity->desc + "\n\n");
     current_ = entity;
 }
@@ -135,7 +135,7 @@ GGJEntity* GGJ19::handleGoBack(GGJDriver& driver) {
         context_.clear();
         return prev;
     } else {
-        driver.print("you can't go back just now");
+        driver.print("You can't go back just now\n");
         return nullptr;
     }
 }
@@ -146,7 +146,7 @@ GGJEntity* GGJ19::handleTake(GGJDriver& driver, NLCommand& cmd) {
         return link.verb == cmd.verb && link.object == cmd.object;
     });
     if (it == links.end()) {
-        driver.print("> nopity nope\n");
+        driver.print("You can't take that\n");
         return nullptr;
     }
     const auto link = *it;
@@ -194,19 +194,17 @@ GGJEntity* GGJ19::handleLink(GGJDriver& driver, NLCommand& cmd) {
     }
     
     if (!result.first) {
-        driver.print("> nah, you can't do that\n");
+        driver.print("Nah, you can't do that\n");
         return nullptr;
     }
     auto link = result.second;
     if (!link.lock.size()) return link.entity;
     
-    // if (!it->lock.size()) return it->entity;
-    
     // We need an item from the inventory:
     const auto item = inventory_.find(link.lock);
     if (item != inventory_.end()) return link.entity;
     
-    driver.print("> Nuh-uh. You need '" + link.lock + "'");
+    driver.print("Nuh-uh. You need '" + link.lock + "'\n");
     return nullptr;
 }
 
