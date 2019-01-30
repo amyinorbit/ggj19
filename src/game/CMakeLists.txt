@@ -8,6 +8,8 @@ IF(APPLE)
 		MACOSX_BUNDLE_GUI_IDENTIFIER com.idsmlmgames.alive
 		MACOSX_BUNDLE_BUNDLE_NAME "GGJ19 - Alive"
 		MACOSX_BUNDLE_COPYRIGHT "(c) 2019 IDSMLM Games, Emma Rydstrom and Amy Parent"
+  	  	MACOSX_BUNDLE_GUI_IDENTIFIER "com.idsmlmgames.alive"
+  		MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/info.plist.in"
 	)
 	add_custom_command(TARGET alive PRE_BUILD
 	                   COMMAND ${CMAKE_COMMAND} -E copy_directory

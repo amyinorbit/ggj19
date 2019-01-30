@@ -95,19 +95,21 @@ void SDLIO::onStart(GGJDriver& driver) {
 bool SDLIO::onUpdate(GGJDriver& driver) {
     
     bool result = doEvents(driver);
-    
-    SDL_SetRenderTarget(renderer_, target_);
-    SDL_SetRenderDrawColor(renderer_, 0x08, 0x08, 0x02, 0xff);
-    SDL_RenderClear(renderer_);
-    
     clearScreenBuffer();
     blitOutput();
     blitInput();
     updateLag();
     
-    for(std::uint64_t i = 0; i < SDLIO_COLS*SDLIO_ROWS; ++i) {
-        drawChar(screen_[i], i);
+    if(dirty_) {
+        SDL_SetRenderTarget(renderer_, target_);
+        SDL_SetRenderDrawColor(renderer_, 0x08, 0x08, 0x02, 0xff);
+        SDL_RenderClear(renderer_);
+        for(std::uint64_t i = 0; i < SDLIO_COLS*SDLIO_ROWS; ++i) {
+            drawChar(screen_[i], i);
+        }
+        dirty_ = false;
     }
+    
     
 	SDL_SetRenderTarget(renderer_, NULL);
     SDL_SetRenderDrawColor(renderer_, 0x10, 0x10, 0x10, 0x80);
@@ -129,6 +131,7 @@ bool SDLIO::doEvents(GGJDriver& driver) {
                 if (inBuffer_.size()) {
                     inBuffer_.pop_back();
                 }
+                dirty_ = true;
                 break;
                 
             case SDLK_RETURN:
@@ -137,12 +140,14 @@ bool SDLIO::doEvents(GGJDriver& driver) {
                     driver.handleInput(inBuffer_);
                 }
                 inBuffer_.clear();
+                dirty_ = true;
             }
                 break;
             }
         }
         else if (e.type == SDL_TEXTINPUT) {
             inBuffer_ += e.text.text;
+            dirty_ = true;
         }
     }
     return true;
@@ -154,6 +159,7 @@ void SDLIO::onFinish(GGJDriver& driver) {
 
 void SDLIO::print(GGJDriver& driver, const std::string& str) {
     outBuffer_ += str;
+    dirty_ = true;
 }
 
 void SDLIO::clearScreenBuffer() {
@@ -193,6 +199,7 @@ void SDLIO::blitInput() {
 
 void SDLIO::updateLag() {
     if(lagHead_/2 == outBuffer_.size()) return;
+    dirty_ = true;
     lagHead_ += 1;
 }
 
@@ -229,5 +236,6 @@ void SDLIO::drawChar(char c, int cx, int cy) {
 void SDLIO::clear(GGJDriver& driver) {
     // TODO: A memset here would go faster, probs
     lagHead_ = 0;
+    dirty_ = true;
     outBuffer_.clear();
 }

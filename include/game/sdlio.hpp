@@ -38,11 +38,14 @@ private:
     void updateLag();
     
     bool doEvents(GGJDriver& driver);
+    
     std::string inBuffer_ = "";
     std::string outBuffer_ = "";
     char screen_[SDLIO_COLS*SDLIO_ROWS];
     
     int lagHead_;
+    
+    bool dirty_ = true;
     
     int width, height;
     int charWidth, charHeight;
