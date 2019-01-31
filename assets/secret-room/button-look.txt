@@ -4,4 +4,4 @@
 
 @links
 *"button", use, secret-room/button-use.txt
-*"back", go, secret-room.txt
+

@@ -3,4 +3,4 @@
 "The chairs are made of black metal, with intricate wrought iron swirls on the backrest."
 
 @links
-*"back", go, patio.txt
+

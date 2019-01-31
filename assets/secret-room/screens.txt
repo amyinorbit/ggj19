@@ -3,4 +3,4 @@
 "The house is empty. You're alone." 
 
 @links
-*"back", go, secret-room.txt
+

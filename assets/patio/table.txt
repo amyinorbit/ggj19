@@ -3,4 +3,4 @@
 "The table legs are made of black metal, with a beautiful mosaic tabletop."
 
 @links
-*"back", go, patio.txt
+

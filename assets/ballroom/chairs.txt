@@ -3,4 +3,4 @@
 "The chairs snake along the perimeter of the room, framing the dancefloor." 
 
 @links
-*"back", go, ballroom.txt
+

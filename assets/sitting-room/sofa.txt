@@ -3,4 +3,4 @@
 "An old but well looked after empire sofa."
 
 @links
-*"back", go, sitting-room.txt
+

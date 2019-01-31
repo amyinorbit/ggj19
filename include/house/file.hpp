@@ -21,7 +21,7 @@
 // };
 
 struct GGJToken {
-    enum Kind { Object, Room, Links, QuotedString, Identifier, Star, Comma, End };
+    enum Kind { Object, Room, Container, Links, QuotedString, Identifier, Star, Comma, End };
     Kind kind;
     std::string text;
 };

@@ -7,4 +7,3 @@
 
 
 @links
-*"back", go, master-bedroom.txt

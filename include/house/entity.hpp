@@ -21,7 +21,7 @@ struct GGJLink {
     GGJEntity*      entity;
 };
 
-enum class GGJKind { Room, Object };
+enum class GGJKind { Room, Object, Container };
 
 struct GGJEntity {
     GGJKind                 kind    = GGJKind::Room;

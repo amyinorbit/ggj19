@@ -3,4 +3,4 @@
 "The shoe rack is full of shoes. You see a pair of women's heels and some children's wellies." 
 
 @links
-*"back", go, foyer.txt
+

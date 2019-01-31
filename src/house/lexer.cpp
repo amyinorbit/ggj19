@@ -66,6 +66,9 @@ const GGJToken& GGJFile::lexKeyword() {
     if (str == "@object") {
         return makeToken(GGJToken::Object);
     }
+    if (str == "@container") {
+        return makeToken(GGJToken::Container);
+    }
     if (str == "@links") {
         return makeToken(GGJToken::Links);
     }

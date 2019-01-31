@@ -3,4 +3,4 @@
 "You carefully touch the bottom right plate. It's still warm."
 
 @links
-*"back", go, kitchen.txt
+
