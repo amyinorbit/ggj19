@@ -58,7 +58,7 @@ SDLIO::SDLIO(int char_w, int char_h, int mul) {
         renderer_, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_TARGET, width, height
     );
     SDL_SetTextureBlendMode(target_, SDL_BLENDMODE_BLEND);
-	SDL_SetTextureAlphaMod(target_, 0xcc);
+	SDL_SetTextureAlphaMod(target_, 0x80);
 	SDL_SetRenderDrawColor(renderer_, 0x00, 0x00, 0x00, 0xff);
 	SDL_SetRenderDrawBlendMode(renderer_, SDL_BLENDMODE_ADD);
     
