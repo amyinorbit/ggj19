@@ -45,8 +45,6 @@ private:
     char screen_[SDLIO_COLS*SDLIO_ROWS];
     
     int lagHead_;
-    
-    int lag_ = 10;
     bool dirty_ = true;
     
     int width, height;

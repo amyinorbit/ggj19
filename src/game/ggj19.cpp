@@ -118,7 +118,7 @@ void GGJ19::showEntity(GGJDriver& driver, GGJEntity* entity) {
     if (entity->kind == GGJKind::Room) {
         driver.clear();
         context_.clear();
-        //lookAt_ = nullptr;
+        
         current_ = entity;
         driver.print("# " + entity->name + "\n");
     } else if (entity->links.size()) {

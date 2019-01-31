@@ -89,7 +89,6 @@ SDLIO::~SDLIO() {
 void SDLIO::onStart(GGJDriver& driver) {
     clear(driver);
     SDL_StartTextInput();
-    
 }
 
 bool SDLIO::onUpdate(GGJDriver& driver) {
@@ -98,23 +97,15 @@ bool SDLIO::onUpdate(GGJDriver& driver) {
     clearScreenBuffer();
     blitOutput();
     blitInput();
+    updateLag();
     
     if(dirty_) {
         SDL_SetRenderTarget(renderer_, target_);
         SDL_SetRenderDrawColor(renderer_, 0x08, 0x08, 0x02, 0xff);
         SDL_RenderClear(renderer_);
         
-        
-        // for(std::uint64_t i = 0; i < SDLIO_COLS*SDLIO_ROWS; ++i) {
-        //     drawChar(screen_[i], i);
-        // }
-        if(lag_) {
-            lag_ -= 1;
-        } else {
-            for(std::uint64_t i = 0; i < SDLIO_COLS*SDLIO_ROWS; ++i) {
-                drawChar(screen_[i], i);
-            }
-            dirty_ = false;
+        for(std::uint64_t i = 0; i < SDLIO_COLS*SDLIO_ROWS; ++i) {
+            drawChar(screen_[i], i);
         }
     }
     
@@ -167,7 +158,6 @@ void SDLIO::onFinish(GGJDriver& driver) {
 void SDLIO::print(GGJDriver& driver, const std::string& str) {
     outBuffer_ += str;
     dirty_ = true;
-    lag_ = 60;
 }
 
 void SDLIO::clearScreenBuffer() {
@@ -182,7 +172,6 @@ void SDLIO::blitOutput() {
     
     for (char c: outBuffer_) {
         int line = address / SDLIO_COLS;
-        //if (line > (SDLIO_ROWS - 3)) break;
         if (line > (SDLIO_ROWS - 3)) {
             scrollUp();
             address -= SDLIO_COLS;
@@ -197,7 +186,7 @@ void SDLIO::blitOutput() {
         address += 1;
         count += 1;
         
-        //if (count >= lagHead_/2) break;
+        if (count >= lagHead_) break;
     }
 }
 
@@ -219,9 +208,9 @@ void SDLIO::scrollUp() {
 }
 
 void SDLIO::updateLag() {
-    // if(lagHead_/2 == outBuffer_.size()) return;
-    // dirty_ = true;
-    // lagHead_ += 1;
+    if(lagHead_ == outBuffer_.size()) return;
+    dirty_ = true;
+    lagHead_ += 1;
 }
 
 static inline int get_bit(std::uint8_t byte, int idx) {
@@ -255,7 +244,6 @@ void SDLIO::drawChar(char c, int cx, int cy) {
 }
 
 void SDLIO::clear(GGJDriver& driver) {
-    // TODO: A memset here would go faster, probs
     lagHead_ = 0;
     dirty_ = true;
     outBuffer_.clear();
