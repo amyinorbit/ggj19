@@ -48,9 +48,10 @@ private:
     GGJEntity* handleLink(GGJDriver& driver, NLCommand& cmd);
     GGJEntity* handleReset(GGJDriver& driver);
     
-    //GGJEntity*              context_    = nullptr;
     GGJEntity*              current_    = nullptr;
+    //GGJEntity*              lookAt_     = nullptr;
     std::vector<GGJEntity*> context_;
+    
     NLParser                parser_     = NLParser();
     GGJLoader               loader_     = GGJLoader("intro.txt");
     

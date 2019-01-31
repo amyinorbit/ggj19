@@ -101,18 +101,41 @@ void GGJ19::handleInput(GGJDriver& driver, const std::string& str) {
         showEntity(driver, next);
 }
 
+static void debugEntity(const GGJEntity& e) {
+    std::cout << (e.kind == GGJKind::Room ? "@room" : "@object") << ": " << e.name << "\n";
+    std::cout << "@links:\n";
+    for (const auto& l: e.links) {
+        std::cout << " - " << l.verb << " " << l.object << " " << l.key << "\n";
+    }
+    std::cout << "----\n";
+}
+
+
 void GGJ19::showEntity(GGJDriver& driver, GGJEntity* entity) {
+    #ifndef NDEBUG
+    debugEntity(*entity);
+    #endif
     if (entity->kind == GGJKind::Room) {
-        context_.clear();
-        context_.push_back(entity);
         driver.clear();
-        driver.print("* " + entity->name + "\n");
-    } else {
-        context_.push_back(current_);
+        context_.clear();
+        //lookAt_ = nullptr;
         current_ = entity;
+        driver.print("# " + entity->name + "\n");
+    } else if (entity->links.size()) {
+        
+        driver.clear();
+        if(context_.size() && entity == context_.back()) {
+            context_.pop_back();
+        } else {
+            context_.push_back(current_);
+        }
+        
+        
+        current_ = entity;
+        driver.print("# " + entity->name + "\n");
+        
     }
     driver.print(entity->desc + "\n\n");
-    current_ = entity;
 }
 
 GGJEntity* GGJ19::handleVerb(GGJDriver& driver, NLCommand& cmd) {
@@ -131,8 +154,7 @@ GGJEntity* GGJ19::handleVerb(GGJDriver& driver, NLCommand& cmd) {
 
 GGJEntity* GGJ19::handleGoBack(GGJDriver& driver) {
     if (context_.size() && context_.back() != current_) {
-        auto* prev = context_.front();
-        context_.clear();
+        auto* prev = context_.back();
         return prev;
     } else {
         driver.print("You can't go back just now\n");
@@ -169,8 +191,6 @@ GGJEntity* GGJ19::handleHelp(GGJDriver& driver) {
     return nullptr;
 }
 
-
-
 std::pair<bool, GGJLink> GGJ19::findLink(const GGJEntity& entity, NLCommand& cmd) {
     const auto& links = entity.links;
     const auto it = std::find_if(links.begin(), links.end(), [&](const GGJLink& link) {
@@ -185,13 +205,9 @@ std::pair<bool, GGJLink> GGJ19::findLink(const GGJEntity& entity, NLCommand& cmd
 GGJEntity* GGJ19::handleLink(GGJDriver& driver, NLCommand& cmd) {
     
     auto result = findLink(*current_, cmd);
-    
-    int ctxIndex = context_.size()-1;
-    
-    while(!result.first && ctxIndex >= 0) {
-        result = findLink(*context_[ctxIndex], cmd);
-        ctxIndex -= 1;
-    }
+    // if(!result.first && context_) {
+    //     result = findLink(*context_, cmd);
+    // }
     
     if (!result.first) {
         driver.print("Nah, you can't do that\n");

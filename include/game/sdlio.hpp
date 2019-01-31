@@ -46,6 +46,7 @@ private:
     
     int lagHead_;
     
+    int lag_ = 10;
     bool dirty_ = true;
     
     int width, height;

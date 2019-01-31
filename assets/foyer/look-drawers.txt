@@ -3,5 +3,3 @@
 "It's a wooden chest of drawers." 
 
 @links
-*"drawers", use, foyer/use-drawers.txt
-
