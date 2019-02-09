@@ -1,13 +1,15 @@
 cmake_minimum_required(VERSION 3.2)
 project(ggj19 VERSION 3.0 LANGUAGES CXX C)
 
-set(DEV_VERSION_POSTFIX "-dr3")
+# set(DEV_VERSION_POSTFIX "-dr3")
 
-if(CMAKE_BUILD_TYPE MATCHES RELEASE)
-	set(PROJECT_VERSION "${PROJECT_VERSION}")
-else()
-	set(PROJECT_VERSION "${PROJECT_VERSION}${DEV_VERSION_POSTFIX}")
-endif()
+# if(CMAKE_BUILD_TYPE MATCHES RELEASE)
+# 	set(PROJECT_VERSION "${PROJECT_VERSION}")
+# 	message("Debug Mode")
+# else()
+# 	set(PROJECT_VERSION "${PROJECT_VERSION}${DEV_VERSION_POSTFIX}")
+# 	message("Release Mode")
+# endif()
 	
 
 include(FindPkgConfig)
