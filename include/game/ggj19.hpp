@@ -41,6 +41,7 @@ private:
     
     std::pair<bool, GGJLink> findLink(const GGJEntity&, NLCommand& cmd);
     
+    GGJEntity* handleLook(GGJDriver& driver);
     GGJEntity* handleGoBack(GGJDriver& driver);
     GGJEntity* handleTake(GGJDriver& driver, NLCommand& cmd);
     GGJEntity* handleInventory(GGJDriver& driver);

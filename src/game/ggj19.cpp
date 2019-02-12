@@ -24,13 +24,16 @@ GGJ19::GGJ19() {
     auto takeVerb = NLVerb("take");
     takeVerb.synonyms.push_back("get");
     takeVerb.synonyms.push_back("grab");
+    
+    auto lookVerb = NLVerb("look");
+    lookVerb.synonyms.push_back("examine");
 
     parser_.addVerb(goVerb);
     parser_.addVerb(useVerb);
     parser_.addVerb(takeVerb);
+    parser_.addVerb(lookVerb);
     
     parser_.addVerb(NLVerb("stand"));
-    parser_.addVerb(NLVerb("look"));
     parser_.addVerb(NLVerb("open"));
     parser_.addVerb(NLVerb("farside"));
     
@@ -145,11 +148,17 @@ GGJEntity* GGJ19::handleVerb(GGJDriver& driver, NLCommand& cmd) {
         return handleTake(driver, cmd);
     if (cmd.verb == "inventory")
         return handleInventory(driver);
+    if (cmd.verb == "look")
+        return (cmd.object.size()) ? handleLink(driver, cmd) : handleLook(driver);
     if (cmd.verb == "help")
         return handleHelp(driver);
     if (cmd.verb == "reset")
         return handleReset(driver);
     return handleLink(driver, cmd);
+}
+
+GGJEntity* GGJ19::handleLook(GGJDriver& driver) {
+    return context_.size() ? context_.front() : current_;
 }
 
 GGJEntity* GGJ19::handleGoBack(GGJDriver& driver) {
@@ -187,7 +196,7 @@ GGJEntity* GGJ19::handleInventory(GGJDriver& driver) {
 }
 
 GGJEntity* GGJ19::handleHelp(GGJDriver& driver) {
-    driver.print("\ncommands:\n - go [to] (enter, walk)\n - use (toggle, touch)\n - take (get, grab)\n - stand\n - look\n - open\n - go back\n - inventory");
+    driver.print("\ncommands:\n - go [to] (enter, walk)\n - use (toggle, touch)\n - take (get, grab)\n - stand\n - look [at ...]\n - open\n - go back\n - inventory");
     return nullptr;
 }
 
